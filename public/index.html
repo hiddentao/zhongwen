@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+	<meta charset="utf-8" />
+	<title>Zhong Wen</title>
+
+    <meta name="viewport" content="width=device-width; initial-scale=1.0; minimum-scale=1; maximum-scale=1.0; user-scalable=0;">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+
+    <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.0.1/jquery.mobile-1.0.1.min.css" />
+    <link rel="stylesheet" href="app.css" />
+
+</head>
+
+
+<body>
+
+    <div id="page-home" data-url="home" data-title="中文!" data-role="page">
+        <section class="content">
+            <h2>中文!</h2>
+            <p>Choose where to begin:</p>
+            <div class="choice" data-role="controlgroup">
+                <a href="#questions" data-role="button" data-category="beg-all">Beginner - all units</a>
+                <a href="#questions" data-role="button" data-category="beg-1to4">Beginner - units 1 to 4</a>
+                <a href="#questions" data-role="button" data-category="beg-5to6">Beginner - units 5 to 6</a>
+            </div>
+        </section>
+    </div>
+
+    <div id="page-questions" data-url="questions" data-title="Questions" data-role="page">
+        <header data-role="header" data-position="inline">
+            <a href="#page-home" data-icon="home" >Home</a>
+            <h1>Questions</h1>
+        </header>
+        <section class="content">
+            test
+        </section>
+    </div>
+
+    <footer>
+        <p><a href="http://hiddentao.com/blog/whatever">About</a> | <a href="https://github.com/hiddentao/zhongwen">Source</a></p>
+        <p>Developed by <a href="http://twitter.com/hiddentao">Ramesh Nair</a></p>
+    </footer>
+
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+    <script type="text/javascript">var App = require('bootstrap'); var app = new App();</script>
+    <script type="text/javascript" src="http://code.jquery.com/mobile/1.0.1/jquery.mobile-1.0.1.min.js"></script>
+
+</body>
+
+</html>

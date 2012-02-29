@@ -1,0 +1,17 @@
+{
+  "author": "Ramesh Nair <ram@hiddentao.com> (http://hiddentao.com)",
+  "name": "zhongwen",
+  "version": "0.0.0",
+  "homepage": "http://zhongwen.co.uk",
+  "repository": {
+    "url": ""
+  },
+  "engines": {
+    "node": "~0.6.7"
+  },
+  "dependencies": {
+	"hem": "0.1.8"
+  },
+  "devDependencies": {},
+  "optionalDependencies": {}
+}
