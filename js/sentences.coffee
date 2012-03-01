@@ -21,13 +21,9 @@ class module.exports extends Spine.Controller
                 '1to4': new Beginner.Units_1_To_4
                 '5to6': new Beginner.Units_5_To_6
 
+        # setup char input
         @charInput = new CharacterInput($("canvas", @el), @_handleCharacterInput)
-
-        # when user clicks 'clear canvas' button clear the canvas
-        @btn_clear_canvas.click @_clearCanvas
-
-
-
+        @btn_clear_canvas.click => @charInput.clear()
 
 
     #
@@ -40,10 +36,10 @@ class module.exports extends Spine.Controller
         [maincat, subcat] = @category.split("-");
 
         # collect list of builders
-        @active_builders = [];
+        @active_builders = []
         if 'all' is subcat
             # get all
-            Object.keys(@builders[maincat]).forEach ((v,i,a) ->
+            Object.keys(@builders[maincat]).forEach ((v,i,a) =>
                 @active_builders.push @builders[maincat][v]
             ), @
         else
@@ -63,11 +59,14 @@ class module.exports extends Spine.Controller
     # PRIVATE METHODS
 
 
-    #
-    # Handle a character input.
-    #
-    @_handleCharacterInput: (charSuggestions) ->
-        true
+    ###
+    Handle a character input.
+
+    @param charSuggestions array in form [charHtmlEntity, Score] in descending score order.
+    @param timeTaken time taken to find matching characters
+    ###
+    _handleCharacterInput: (charSuggestions, timeTaken) =>
+        console.log charSuggestions, timeTaken
 
 
     #
