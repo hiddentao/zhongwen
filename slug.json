@@ -7,9 +7,11 @@
   "libs": [
     "./lib/css3-mediaqueries.js",
     "./lib/html5shim.js",
-    "./lib/my.class.js"
+    "./lib/shortstraw.js",
+    "./lib/chinesestrokes.js"
   ],
   "dependencies": [
+    "es5-shimify",
     "spine"
   ]
 }
