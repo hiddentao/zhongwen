@@ -66,6 +66,7 @@ class module.exports extends Spine.Controller
     @param timeTaken time taken to find matching characters
     ###
     _handleCharacterInput: (charSuggestions, timeTaken) =>
+
         console.log charSuggestions, timeTaken
 
 

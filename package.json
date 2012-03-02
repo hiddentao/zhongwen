@@ -10,7 +10,9 @@
     "node": "~0.6.7"
   },
   "dependencies": {
-	"hem": "0.1.8"
+	"hem": "0.1.8",
+    "spine": "1.0.6",
+    "es5-shimify": "0.0.1"
   },
   "devDependencies": {},
   "optionalDependencies": {}

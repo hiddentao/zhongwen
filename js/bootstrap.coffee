@@ -44,6 +44,8 @@ class module.exports extends Spine.Controller
                     if "page-sentences" is data.toPage.attr("id")
                         # set page title
                         $("#page-sentences header h1").text(jqLastSelectedChoice.text())
+                        $("#page-sentences").jqmData( "title", jqLastSelectedChoice.text() )
+                        document.title = jqLastSelectedChoice.text()
                         # kick off sentences
                         sentences.start(jqLastSelectedChoice.data("category"))
                         jqLastSelectedChoice = null    # reset category
