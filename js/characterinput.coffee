@@ -1,7 +1,12 @@
 ###
 Handles character input on canvas.
 
-All of the stroke code and other stuff is based on code from http://jabtunes.com/notation/chinesestroke.html
+All of the stroke code and other stuff is based on code from http://jabtunes.com/notation/chinesestroke.html.
+
+We let users input to a canvas. Assumes existence of jQuery. If jQuery Mobile is running it will use the events from
+jQuery Mobile for canvas touch detection (vmousedown, etc.).
+
+TODO: the stroke detection is pretty poor at the moment so it's not really worth using. in some distant future I may look into better OCR techniques!
 ###
 class module.exports
 
@@ -24,17 +29,18 @@ class module.exports
         drawingStroke = false
 
         # touch/mouse events
-        if window.jQuery.mobile isnt undefined
-            mousedown =  'vmousedown'
-            mousemove = 'vmousemove'
-            mouseup = 'vmouseup'
+        if undefined isnt window.jQuery.mobile
+            mousedown = "vmousedown"
+            mousemove = "vmousemove"
+            mouseup = "vmouseup"
         else
-            mousedown =  'mousedown'
-            mousemove = 'mousemove'
-            mouseup = 'mouseup'
+            mousedown = "mousedown, touchstart"
+            mousemove = "mousemove, touchmove"
+            mouseup = "mouseup, touchend"
 
         @canvas.bind mousedown, (e) =>
-            return if drawingStroke #or 1 isnt e.which   # only detect left-mouse button
+            return if drawingStroke
+            return if 0 isnt e.which and 1 isnt e.which   # only detect left-mouse button or finger touch
             drawingStroke = true
             [x,y] = @_getCanvasXY(e)
             @_startStroke x,y
@@ -45,7 +51,8 @@ class module.exports
             @_continueStroke x,y
 
         @canvas.bind mouseup, (e) =>
-            return if not drawingStroke #or 1 isnt e.which   # only detect left-mouse button
+            return if not drawingStroke
+            return if 0 isnt e.which and 1 isnt e.which   # only detect left-mouse button or finger touch
             drawingStroke = false
             [x,y] = @_getCanvasXY(e)
             @_endStroke x,y
@@ -92,6 +99,8 @@ class module.exports
 
 
     _addStrokePoint: (x, y) ->
+        clearTimeout(@characterAnalysisTimeout) if @characterAnalysisTimeout
+
         # don't repeat a point
         return if @lastStrokePt and x is @lastStrokePt.x and y is @lastStrokePt.y
         @lastStrokeTime = new Date()
@@ -119,7 +128,6 @@ class module.exports
         @_addStrokePoint x, y
         @charStrokes.push(@currentStrokeXYs)
         # wait 0.25 seconds before analyzing the stroke
-        clearTimeout(@characterAnalysisTimeout) if @characterAnalysisTimeout
         @characterAnalysisTimeout = setTimeout @_analyse, 750   # give user time to input more strokes
 
 
