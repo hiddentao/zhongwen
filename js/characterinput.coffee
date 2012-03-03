@@ -16,53 +16,63 @@ class module.exports
         @canvasDOM = @canvas.get(0)
         @ctx = @canvasDOM.getContext("2d")
 
-        @allStrokes = []  # all strokes made for current character
-        @strokeBBox = {}    # bounding box for current character
-        @strokeXYs = []    # data points for current stroke
+        @charStrokes = []  # all strokes made for current character
+        @charBBox = null        # character bounding box
+        @currentStrokeXYs = []    # data points for current stroke
         @characterAnalysisTimeout = null   # timeout used for analysing character
 
-        # touch/mouse events
         drawingStroke = false
-        @canvas.mousedown (e) =>
-            return if drawingStroke
+
+        # touch/mouse events
+        if window.jQuery.mobile isnt undefined
+            mousedown =  'vmousedown'
+            mousemove = 'vmousemove'
+            mouseup = 'vmouseup'
+        else
+            mousedown =  'mousedown'
+            mousemove = 'mousemove'
+            mouseup = 'mouseup'
+
+        @canvas.bind mousedown, (e) =>
+            return if drawingStroke #or 1 isnt e.which   # only detect left-mouse button
             drawingStroke = true
             [x,y] = @_getCanvasXY(e)
             @_startStroke x,y
 
-        @canvas.mousemove (e) =>
+        @canvas.bind mousemove, (e) =>
             return if not drawingStroke
             [x,y] = @_getCanvasXY(e)
             @_continueStroke x,y
 
-        @canvas.mouseup (e) =>
-            return if not drawingStroke
+        @canvas.bind mouseup, (e) =>
+            return if not drawingStroke #or 1 isnt e.which   # only detect left-mouse button
             drawingStroke = false
             [x,y] = @_getCanvasXY(e)
             @_endStroke x,y
 
-        @clear()
+        # when window size changes clear the canvas and resize
+        $(window).resize @reset
+
+        @reset()
 
 
 
     ###
-    Clear canvas
+    Clear and reset stroke input
     ###
-    clear: ->
+    reset: =>
         clearTimeout(@characterAnalysisTimeout) if @characterAnalysisTimeout
-        # set canvas size to match css
         @canvasDOM.width = @canvas.parent().width()
-        @canvasDOM.height = @canvas.parent().height()
+        @canvasDOM.height = Math.min(@canvas.parent().height(), 200)
         @ctx.clearRect  0 , 0 , @canvasDOM.width , @canvasDOM.height
-        @allStrokes = []
-        @strokeBBox =
+        @charStrokes = []
+        @charBBox =
             min:
                 x: 50000
                 y: 50000
             max:
                 x: -50000
                 y: -50000
-
-
 
 
     # PRIVATE METHODS
@@ -73,7 +83,7 @@ class module.exports
         return [x,y]
 
     _startStroke: (x, y) ->
-        @strokeXYs= []
+        @currentStrokeXYs= []
         @ctx.strokeStyle = "black"
         @ctx.lineWidth = 2.5
         @ctx.beginPath()
@@ -88,16 +98,15 @@ class module.exports
         @lastStrokePt =
             x: x
             y: y
-        @strokeXYs.push @lastStrokePt
+        @currentStrokeXYs.push @lastStrokePt
         @ctx.lineTo(x,y)
         @ctx.stroke()
 
-        # update bounding box
-        @strokeBBox.max.x = Math.max @strokeBBox.max.x, x
-        @strokeBBox.max.y = Math.max @strokeBBox.max.y, y
-        @strokeBBox.min.x = Math.min @strokeBBox.min.x, x
-        @strokeBBox.min.y = Math.min @strokeBBox.min.y, y
-
+        # update bbox
+        @charBBox.max.x = Math.max @charBBox.max.x, x
+        @charBBox.max.y = Math.max @charBBox.max.y, y
+        @charBBox.min.x = Math.min @charBBox.min.x, x
+        @charBBox.min.y = Math.min @charBBox.min.y, y
 
 
     _continueStroke: (x, y) ->
@@ -108,59 +117,59 @@ class module.exports
 
     _endStroke: (x, y) ->
         @_addStrokePoint x, y
-        @allStrokes.push(@strokeXYs)
+        @charStrokes.push(@currentStrokeXYs)
         # wait 0.25 seconds before analyzing the stroke
         clearTimeout(@characterAnalysisTimeout) if @characterAnalysisTimeout
-        @characterAnalysisTimeout = setTimeout @_analyse, 250
+        @characterAnalysisTimeout = setTimeout @_analyse, 750   # give user time to input more strokes
 
 
     ###
-    Analyse the current strokes to get get a character
+    Analyse the current strokes to get a character
     ###
     _analyse: =>
         # time this!
         startTime = new Date()
 
-        # We use short straw algorithm for sub stroke detection
-        # It works for simple strokes, but we should handle its substrokes
-        # more carefully (TODO)
-        stroke = @strokeXYs
-        corners = shortStraw(stroke)
-
-        # highlight detected corners using lines
-        # work out the bounding box
-        @ctx.strokeStyle = "red"
-        @ctx.lineWidth = 1.5
-        @ctx.beginPath()
-        @ctx.moveTo corners[0].x,corners[0].y
-        for corner  in corners
-            # draw line
-            @ctx.lineTo corner.x, corner.y
-        @ctx.stroke()
-
-        # work out bbox dimensions and get stroke length normalizer
-        width = @strokeBBox.max.x - @strokeBBox.min.x
-        height = @strokeBBox.max.y = @strokeBBox.min.y
+        # get stroke length normalizer
+        width = @charBBox.max.x - @charBBox.min.x
+        height = @charBBox.max.y = @charBBox.min.y
         dimensionSquared = if width > height then width * width else height * height
         normalizer = Math.pow(dimensionSquared * 2, 0.5)
 
         # get gradient and length of each stroke
         userStrokes = []
-        i = 0
-        while corners.length > ++i
-            p1 = corners[i-1]
-            p2 = corners[i]
+        for strokeXYs in @charStrokes
+            # We use short straw algorithm for sub stroke detection
+            # It works for simple strokes, but we should handle its substrokes
+            # more carefully (TODO)
+            corners = window.shortStraw(strokeXYs)
 
-            dy = p1.y - p2.y
-            dx = p1.x - p2.x
+            # highlight detected corners using lines
+            @ctx.strokeStyle = "red"
+            @ctx.lineWidth = 1.5
+            @ctx.beginPath()
+            @ctx.moveTo corners[0].x, corners[0].y
 
-            length = Math.pow(dy*dy + dx*dx, 0.5)
-            normalizedLength = length / normalizer
-            angle = Math.PI - Math.atan2(dy, dx)
+            i = 0
+            while corners.length > ++i
+                @ctx.lineTo corners[i].x, corners[i].y
 
-            userStrokes.push
-                angle: angle
-                length: normalizedLength
+                p1 = corners[i-1]
+                p2 = corners[i]
+
+                dy = p1.y - p2.y
+                dx = p1.x - p2.x
+
+                length = Math.pow(dy*dy + dx*dx, 0.5)
+                normalizedLength = length / normalizer
+                angle = Math.PI - Math.atan2(dy, dx)
+
+                userStrokes.push
+                    angle: angle
+                    length: normalizedLength
+
+            @ctx.stroke()
+
 
 
         # find possible matches

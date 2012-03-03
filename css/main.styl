@@ -1,5 +1,14 @@
+body
+    font-size: 13px
+
+
 .content
     padding 1em 2em
+
+.ui-header
+    .ui-title
+        margin-left 5%
+        margin-right 5%
 
 
 #page-sentences
@@ -11,6 +20,7 @@
 
         .instructions
             display block
+            padding 7px 0 0
             float left
 
         .ui-btn
@@ -18,13 +28,31 @@
             margin 0 0 5px
             float right
 
-        div.canvas
-            width 400px
-            height 300px
-            canvas
-                display block
-                clear both
-                border 1px solid #000
-                cursor pointer
+        canvas
+            display block
+            clear both
+            border 1px solid #000
+            cursor pointer
+
+        .suggestions
+            font-size 120%
+            background-color #fff
+            font-weight bold
+            table
+                border-collapse collapse
+                td
+                    cursor pointer
+                    padding 5px
+                    border 1px solid #666
+                    &:hover
+                        background-color #ccc
+
+
+
+@media only screen and (max-width: 320px)
+    #page-sentences
+        .input
+            width 260px
+            height 180px
 
 

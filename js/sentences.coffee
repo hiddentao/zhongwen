@@ -10,6 +10,8 @@ class module.exports extends Spine.Controller
     elements:
         ".sentence" : "p_sentence"
         ".translation" : "div_translation"
+        ".input" : "div_input"
+        ".input .instructions" : "input_instructions"
         ".input .clear" : "btn_clear_canvas"
         ".input .suggestions" : "div_suggestions"
 
@@ -22,8 +24,19 @@ class module.exports extends Spine.Controller
                 '5to6': new Beginner.Units_5_To_6
 
         # setup char input
-        @charInput = new CharacterInput($("canvas", @el), @_handleCharacterInput)
-        @btn_clear_canvas.click => @charInput.clear()
+        @charInput = new CharacterInput($("canvas", @div_input), @_handleCharacterInput)
+        @btn_clear_canvas.click =>
+            @div_suggestions.hide()
+            @charInput.reset()
+
+        # selecting a char suggestion
+        @div_suggestions
+            .html("<table cellpadding='0' cellspacing='0'><tr></tr></table>")
+            .hide()
+            .on 'click', 'td', (e) =>
+                @div_suggestions.hide()
+                alert $(e.target).text()
+
 
 
     #
@@ -49,8 +62,8 @@ class module.exports extends Spine.Controller
         # reset the display
         @p_sentence.text("")
         @div_translation.html("")
-        @charInput.clear()
-        @div_suggestions.html("").hide();
+        @charInput.reset()
+        @div_suggestions.hide();
 
         @_go()
 
@@ -66,8 +79,17 @@ class module.exports extends Spine.Controller
     @param timeTaken time taken to find matching characters
     ###
     _handleCharacterInput: (charSuggestions, timeTaken) =>
+        $("td", @div_suggestions).remove()
+        for c in charSuggestions
+            $("tr", @div_suggestions).append "<td>#{c.char}</td>"
 
-        console.log charSuggestions, timeTaken
+        @div_suggestions
+            .css
+                position: "absolute"
+                width: @input_instructions.width()
+                top: @input_instructions.offset().top  + "px"
+                left: @input_instructions.offset().left + "px"
+            .show()
 
 
     #

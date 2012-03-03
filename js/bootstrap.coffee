@@ -7,13 +7,13 @@ class module.exports extends Spine.Controller
     constructor: (category) ->
         super
 
+        # prevent native browser scrolling
+        document.body.addEventListener 'touchmove', ((e) -> e.preventDefault()), false
+
         # configure jQuery Mobile
         $.extend $.mobile,
             ajaxEnabled: false
-            autoInitializePage: true
-            defaultPageTransition: 'none'
             hashListeningEnabled: true
-            touchOverflowEnabled: true
 
         # initialization stuff
         initialised = false
@@ -26,7 +26,7 @@ class module.exports extends Spine.Controller
 
                 jqLastSelectedChoice = null;
                 # when selecting a question choice keep note of which one was chosen
-                $("#page-home .choice a").click ->
+                $("#page-home").on 'click', '.choice a',  ->
                     jqLastSelectedChoice = $(this);
 
                 $(document).bind 'pagebeforechange', (e, data) ->
@@ -45,7 +45,6 @@ class module.exports extends Spine.Controller
                         # set page title
                         $("#page-sentences header h1").text(jqLastSelectedChoice.text())
                         $("#page-sentences").jqmData( "title", jqLastSelectedChoice.text() )
-                        document.title = jqLastSelectedChoice.text()
                         # kick off sentences
                         sentences.start(jqLastSelectedChoice.data("category"))
                         jqLastSelectedChoice = null    # reset category

@@ -1,24 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" manifest="appcache.manifest">
 
 <head>
 
 	<meta charset="utf-8" />
-	<title>Zhong Wen</title>
+	<title>中文 (Zhōng Wén)</title>
 
     <meta name="viewport" content="width=device-width; initial-scale=1.0; minimum-scale=1; maximum-scale=1.0; user-scalable=0;">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
 
     <link rel="stylesheet" href="reset.css" />
-    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.0.1/jquery.mobile-1.0.1.min.css" />
+    <link rel="stylesheet" href="jquery.mobile-1.1.0-rc.1.min.css" />
     <link rel="stylesheet" href="app.css" />
 
 </head>
 
-
 <body>
-
     <div id="page-home" data-url="home" data-title="中文!" data-role="page">
         <section class="content">
             <h2>中文</h2>
@@ -34,7 +32,7 @@
 
     <div id="page-sentences" data-url="sentences" data-title="Questions" data-role="page">
         <header data-role="header" data-position="inline">
-            <a href="#page-home" data-icon="home" >Home</a>
+            <a href="#page-home" data-icon="home" data-mini="true" data-iconpos="notext">Home</a>
             <h1></h1>
         </header>
         <section class="content">
@@ -44,7 +42,7 @@
             <div class="input">
                 <p class="instructions">Draw one character at a time:</p>
                 <button class="clear" data-icon="delete" data-mini="true" data-inline="true" data-iconpos="notext">Clear canvas</button>
-                <div class="canvas"><canvas></canvas></div>
+                <canvas></canvas>
                 <div class="suggestions"></div>
             </div>
         </section>
@@ -55,10 +53,9 @@
         <p>Developed by <a href="http://twitter.com/hiddentao">Ramesh Nair</a></p>
     </footer>
 
-    <script type="text/javascript" src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
     <script type="text/javascript" src="app.js"></script>
     <script type="text/javascript">var App = require('bootstrap'); var app = new App();</script>
-    <script type="text/javascript" src="http://code.jquery.com/mobile/1.0.1/jquery.mobile-1.0.1.min.js"></script>
+    <script type="text/javascript" src="jquery.mobile-1.1.0-rc.1.min.js"></script>
 
 </body>
 
