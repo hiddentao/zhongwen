@@ -1,7 +1,7 @@
 # ZhongWen web app #
 
 This is the source code to the [http://zhongwen.co.uk] web app. It is for practising Mandaring writing and translation
-and is based on the syllabus from the [Meridian Chinese school](http://www.meridiandao.co.uk/).
+and is based on the syllabus from the [MECS study program](http://www.meridiandao.co.uk/).
 
 This app is built using:
 
