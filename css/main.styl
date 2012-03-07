@@ -12,8 +12,12 @@ h2
 em
     font-style italic
 
-.content
-    padding 1em 2em
+.ui-page
+    .content
+        display block
+        margin 0 auto
+        padding 1em 2em
+        max-width 640px
 
 .ui-header
     .ui-title
@@ -69,11 +73,11 @@ footer
 
             &.good
                 color #0a0
-                background url('/img/tick.png') no-repeat center left
+                background url('img/tick.png') no-repeat center left
 
             &.bad
                 color #a00
-                background url('/img/cross.png') no-repeat center left
+                background url('img/cross.png') no-repeat center left
 
         label
             display inline-block
