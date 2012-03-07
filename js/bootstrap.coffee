@@ -1,9 +1,6 @@
 Spine = require("spine")
 Tester = require("tester")
 
-# prevent native browser scrolling
-document.body.addEventListener 'touchmove', ((e) -> e.preventDefault()), false
-
 # configure jQuery Mobile
 $.extend $.mobile,
     ajaxEnabled: false

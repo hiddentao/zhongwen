@@ -32,6 +32,13 @@ class module.exports extends Spine.Controller
             @_updateSuggestions dict.lookup(@pinyin_input.val())
 
         @zhongwen_input.bind 'keyup', @_updateProgress
+        # on phones special keyboard input methods sometimes don't trigger events so let's setup a loop
+        pollLoop = null
+        @zhongwen_input.bind 'focus', =>
+            pollLoop= setInterval @_updateProgress, 1000
+        @zhongwen_input.bind 'blur', =>
+            clearInterval(pollLoop) if pollLoop
+            pollLoop = null
 
         # skip button
         $("#skipbtn", @el).bind 'vclick', (e) =>
@@ -42,6 +49,8 @@ class module.exports extends Spine.Controller
         $("button", @nav_next).bind 'vclick', (e) =>
             e.preventDefault()
             @_showNextSentence()
+
+
 
 
     ###
@@ -121,14 +130,16 @@ class module.exports extends Spine.Controller
     ###
     Select given pinyin suggestion if possible
     ###
-    _selectSuggestion: (td) =>
+    _selectSuggestion: (char) =>
         return if not @suggestions.is(":visible")
-        td = $("td:eq(#{td})", @suggestions) if "number" is typeof td
-        if 0 < td.size()
-            @_insertAtCaret @zhongwen_input.get(0), $("span.char",td).text()
-            @_updateProgress()
-            @suggestions.hide()
-            @pinyin_input.val("").focus()
+        if "number" is typeof char
+            char = $("td:eq(#{char}) span.char", @suggestions)
+            return if 0 is char.size()
+            char = char.text()
+        @_insertAtCaret @zhongwen_input.get(0), char
+        @_updateProgress()
+        @suggestions.hide()
+        @pinyin_input.val("").focus()
 
 
     ###
@@ -140,6 +151,10 @@ class module.exports extends Spine.Controller
             num = 0
             for c in chars
                 $("tr", @suggestions).append "<td><span class='num'>#{++num}</span><span class='char'>#{c}</span></td>"
+
+            $("td", @suggestions).each (i,e) =>
+                $(e).bind 'vclick', => @_selectSuggestion $(".char", e).text()
+
 
             pinyin_label_offset = $("label[for=pinyin]", @el).offset()
             @suggestions

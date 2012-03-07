@@ -228,10 +228,10 @@ class module.exports.Sentence
         e = 0
         incorrect = 0
         while expected.length > e and actual.length > a
-            # skip unimportant characters
-            if 0 < ["！","。","，","；"," "].indexOf(expected[e])
+            # skip unimportant characters to make things easier
+            if 0 < ["？", "！","。","，","；"," "].indexOf(expected[e])
                 e++
-            else if 0 < ["!",".",",",";"," "].indexOf(actual[a])
+            else if 0 < ["?", "!",".",",",";"," "].indexOf(actual[a])
                 a++
             else
                 incorrect++ if expected[e] isnt actual[a]
