@@ -1,36 +1,47 @@
 Spine = require("spine")
 SentenceBuilders = require("sentences")
-CharacterInput = require("characterinput")
+dict = require("dict")
 
 
 class module.exports extends Spine.Controller
 
+    current_sentence: null
+
     el: $("#page-tester")
 
     elements:
-        ".sentence" : "p_sentence"
-        ".translation" : "div_translation"
-        ".input" : "div_input"
-        ".input .instructions" : "input_instructions"
-        ".input .clear" : "btn_clear_canvas"
-        ".input .suggestions" : "div_suggestions"
+        "#sentence" : "sentence"
+        "#nav" : "nav_next"
+        "#progress" : "progress"
+        "form textarea" : "zhongwen_input"
+        "form input" : "pinyin_input"
+        "#suggestions" : "suggestions"
 
     constructor: ->
         super
 
-        # setup char input
-        @charInput = new CharacterInput($("canvas", @div_input), @_handleCharacterInput)
-        @btn_clear_canvas.click =>
-            @div_suggestions.hide()
-            @charInput.reset()
+        # pinyin input
+        @pinyin_input.bind 'keydown', (e) =>
+            code = parseInt(e.which)
+            # numbers
+            if 49 <= code and 57 >= code
+                e.preventDefault()
+                @_selectSuggestion(code - 49)
 
-        # selecting a char suggestion
-        @div_suggestions
-            .html("<table cellpadding='0' cellspacing='0'><tr></tr></table>")
-            .hide()
-            .on 'click', 'td', (e) =>
-                @div_suggestions.hide()
-                alert $(e.target).text()
+        @pinyin_input.bind 'keyup', =>
+            @_updateSuggestions dict.lookup(@pinyin_input.val())
+
+        @zhongwen_input.bind 'keyup', @_updateProgress
+
+        # skip button
+        $("#skipbtn", @el).bind 'vclick', (e) =>
+            e.preventDefault()
+            @_showNextSentence()
+
+        # next button
+        $("button", @nav_next).bind 'vclick', (e) =>
+            e.preventDefault()
+            @_showNextSentence()
 
 
     ###
@@ -44,12 +55,12 @@ class module.exports extends Spine.Controller
             thisCat = []
             thisCat.push
                 category: "#{maincat}-all"
-                label: "#{@_capitalize(maincat)} - all"
+                label: "All"
 
             for subcat,builder of subcats
                 thisCat.push
                     category: "#{maincat}-#{subcat}"
-                    label: "#{@_capitalize(maincat)} - #{builder.shortDesc()}"
+                    label: builder.shortDesc()
 
             ret.push thisCat
 
@@ -77,13 +88,7 @@ class module.exports extends Spine.Controller
             # get 1
             @active_builders.push SentenceBuilders[maincat][subcat]
 
-        # reset the display
-        @p_sentence.text("")
-        @div_translation.html("")
-        @charInput.reset()
-        @div_suggestions.hide();
-
-        @_go()
+        @_showNextSentence()
 
 
 
@@ -91,33 +96,104 @@ class module.exports extends Spine.Controller
 
 
     ###
-    Handle a character input.
-
-    @param charSuggestions array in form [charHtmlEntity, Score] in descending score order.
-    @param timeTaken time taken to find matching characters
+    Check user's input and update progress
     ###
-    _handleCharacterInput: (charSuggestions, timeTaken) =>
-        $("td", @div_suggestions).remove()
-        for c in charSuggestions
-            $("tr", @div_suggestions).append "<td>#{c.char}</td>"
+    _updateProgress: =>
+        @nav_next.hide()
 
-        @div_suggestions
-            .css
-                position: "absolute"
-                width: @input_instructions.width()
-                top: @input_instructions.offset().top  + "px"
-                left: @input_instructions.offset().left + "px"
-            .show()
+        actual = @zhongwen_input.val()
+        return @progress.hide() if 0 >= actual.length
+
+        incorrect = @current_sentence.cn.matches(actual)
+
+        if incorrect is true
+            @progress.removeClass("bad").addClass("good").text("you did it!")
+            @nav_next.show()
+        else
+            if 0 < incorrect
+                @progress.removeClass("good").addClass("bad").text(incorrect + " incorrect")
+            else
+                @progress.removeClass("bad").addClass("good").text("good so far")
+
+        @progress.show()
+
+
+    ###
+    Select given pinyin suggestion if possible
+    ###
+    _selectSuggestion: (td) =>
+        return if not @suggestions.is(":visible")
+        td = $("td:eq(#{td})", @suggestions) if "number" is typeof td
+        if 0 < td.size()
+            @_insertAtCaret @zhongwen_input.get(0), $("span.char",td).text()
+            @_updateProgress()
+            @suggestions.hide()
+            @pinyin_input.val("").focus()
+
+
+    ###
+    Update pinyin suggestions view with given chars.
+    ###
+    _updateSuggestions: (chars) =>
+        if 0 < chars.length
+            $("td", @suggestions).remove()
+            num = 0
+            for c in chars
+                $("tr", @suggestions).append "<td><span class='num'>#{++num}</span><span class='char'>#{c}</span></td>"
+
+            pinyin_label_offset = $("label[for=pinyin]", @el).offset()
+            @suggestions
+                .css
+                    position: "absolute"
+                    top: pinyin_label_offset.top  + "px"
+                    left: pinyin_label_offset.left + "px"
+                .show()
+        else
+            @suggestions.hide()
 
 
     #
-    # The main "loop".
+    # Show next sentence
     #
-    _go: ->
+    _showNextSentence: =>
+        # reset the display
+        @progress.hide()
+        @nav_next.hide()
+        @sentence.text("")
+        @zhongwen_input.val("")
+        @pinyin_input.val("")
+        @suggestions.hide();
+
         n = parseInt(Math.random() * @active_builders.length)
-        console.log @active_builders
+        @current_sentence = @active_builders[n].next()
+        @sentence.text(@current_sentence.en)
+
 
 
     # Capitalize string
     _capitalize: (str) ->
         str.charAt(0).toUpperCase() + str.slice(1)
+
+
+    ###
+    Insert text at caret position in given element.
+    Take from: http://stackoverflow.com/a/4384173
+    ###
+    _insertAtCaret: (element, text) ->
+        if document.selection
+            element.focus()
+            sel = document.selection.createRange()
+            sel.text = text
+            element.focus()
+        else if element.selectionStart or element.selectionStart is 0
+            startPos = element.selectionStart
+            endPos = element.selectionEnd
+            scrollTop = element.scrollTop
+            element.value = element.value.substring(0, startPos) + text + element.value.substring(endPos, element.value.length)
+            element.focus()
+            element.selectionStart = startPos + text.length
+            element.selectionEnd = startPos + text.length
+            element.scrollTop = scrollTop
+        else
+            element.value += text
+            element.focus()

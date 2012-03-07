@@ -1,0 +1,25 @@
+{
+    "/" : "./public",
+
+    "/app.css" : {
+        "input": [
+            "./css/reset.css",
+            "./css/main.styl"
+        ]
+    },
+
+    "/app.js" : {
+        "minify": false,
+        "input" : {
+            "dependency": [
+                "es5-shimify",
+                "spine"
+            ],
+            "lib" : [
+                "./lib/css3-mediaqueries.js",
+                "./lib/html5shim.js"
+            ],
+            "module": [ "./js" ]
+        }
+    }
+}

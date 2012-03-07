@@ -1,42 +1,170 @@
-Dictionary = module.exports.Dictionary =
-    "我": ["wŏ"]
-    "你": ["nĭ"]
-    "他": ["tā"]
-    "她": ["tā"]
-    "是": ["shì"]
-    "姓": ["xìng"]
-    "叫": ["jiào"]
-    "在": ["zài"]
-    "有": ["yŏu"]
-    "吃": ["chī"]
-    "喝": ["hē"]
-    "看": ["kàn"]
-    "王": ["wáng"]
-    "先": ["xiān"]
-    "生": ["shēng"]
-    "人": ["rén"]
-    "中": ["zhōng"]
-    "国": ["guó"]
-    "英": ["yīng"]
-    "北": ["bĕi"]
-    "京": ["jīng"]
-    "伦": ["lún"]
-    "敦": ["dūn"]
-    "图": ["tú"]
-    "书": ["shū"]
-    "馆": ["guăn"]
-    "茶": ["chá"]
-    "酒": ["jiŭ"]
-    "饭": ["fàn"]
-    "好": ["hăo"]
-    "聪": ["cōng"]
-    "明": ["míng"]
-    "很": ["hĕn"]
-    "不": ["bù"]
-    "没": ["méi"]
+Dict =
+    "？": "?"
+    "！": "!"
+    "。": "."
+    "，": ","
+    "；": ";"
+    "啊" : ["a", "ah"]
+    "我": "wǒ"
+    "你": "nǐ"
+    "他": "tā"
+    "她": "tā"
+    "是": "shì"
+    "姓": "xìng"
+    "叫": "jiào"
+    "在": "zài"
+    "有": "yǒu"
+    "吃": "chī"
+    "喝": "hē"
+    "看": "kàn"
+    "王": "wáng"
+    "先": "xiān"
+    "生": "shēng"
+    "人": "rén"
+    "中": "zhōng"
+    "国": "guó"
+    "英": "yīng"
+    "北": "běi"
+    "京": "jīng"
+    "伦": "lún"
+    "敦": "dūn"
+    "图": "tú"
+    "书": "shū"
+    "馆": "guǎn"
+    "茶": "chá"
+    "酒": "jiǔ"
+    "饭": "fàn"
+    "好": "hǎo"
+    "聪": "cōng"
+    "明": "míng"
+    "很": "hěn"
+    "不": "bù"
+    "没": "méi"
+    "们": "men"
+    "说" : "shuō"
+    "小" : "xiǎo"
+    "姐" : "jiě"
+    "爸" : "bà"
+    "妈" : "mā"
+    "学" : "xué"
+    "大" : "dà"
+    "上" : "shàng"
+    "海" : "hǎi"
+    "文" : "wén"
+    "吗" : "ma"
+    "什" : "shén"
+    "么" : "me"
+    "儿" : "ér"
+    "哪" : "nǎ"
+    "谁" : [ "shéi", "shuí" ]
+    "您" : "nín"
+    "贵" : "guì"
+    "也" : "yě"
+    "都" : "dōu"
+    "吧" : "ba"
+    "再" : "zaì"
+    "见" : "jiàn"
+    "谢" : "xiè"
+    "请" : "qǐng"
+    "问" : "wèn"
+    "因" : "yīn"
+    "为" : "wèi"
+    "所" : "suǒ"
+    "以" : "yǐ"
+    "年" : "nián"
+    "月" : "yuè"
+    "星" : "xīng"
+    "期" : "qī"
+    "日" : "rì"
+    "号" : "hào"
+    "今" : "jīn"
+    "天" : "tiān"
+    "昨" : "zuó"
+    "明" : "míng"
+    "早" : "zǎo"
+    "午" : "wǔ"
+    "下" : "xià"
+    "晚" : "wǎn"
+    "点" : "diǎn"
+    "分" : "fēn"
+    "刻" : "kè"
+    "半" : "bàn"
+    "一" : "yī"
+    "二" : "èr"
+    "两" : "liǎng"
+    "三" : "sān"
+    "四" : "sì"
+    "五" : "wǔ"
+    "六" : "lìu"
+    "七" : "qī"
+    "八" : "bā"
+    "九" : "jǐu"
+    "十" : "shí"
+    "去" : "qǜ"
+    "虽" : "suī"
+    "然" : "rán"
+    "可" : "kě"
+    "但" : "dàn"
+
+
+###
+Change tone of given pinyin
+@param newTone integer between 1 and 5
+###
+changeTone = (pinyin, newTone) ->
+    # assume there is only one toned character in the pinyin. Thus as soon as we've made our first change
+    # we will return
+    i = -1
+
+    vowels = [
+        ['ā', 'á', 'ǎ', 'à', 'a']
+        ['ē', 'é', 'ě', 'è', 'e']
+        ['ī', 'í', 'ǐ', 'ì', 'i']
+        ['ō', 'ó', 'ǒ', 'ò', 'o']
+        ['ū', 'ú', 'ǔ', 'ù', 'u', ]
+        ['ǖ', 'ǘ', 'ǚ', 'ǜ', 'ü', ]
+    ]
+
+    while pinyin.length > ++i
+        char = pinyin.charAt(i)
+
+        for tones in vowels
+            ti = 1
+            while 4 >= ti   # finish at 4 - we skip the first tone (neutral)
+                # found a tone we need to change?
+                if tones[ti-1] is char and newTone isnt ti
+                    char = tones[newTone - 1]
+                    return pinyin.substr(0,i) + char + (pinyin.substr(i+1))
+
+                ti++
+
+    return pinyin
 
 
 
+# construct pinyin -> character mappings
+ReverseDict = {}
+for own char, pinyin of Dict
+    pinyin = [pinyin] if not Array.isArray(pinyin)
+    for p in pinyin
+        p = changeTone(p, 5)
+        if not ReverseDict[p]?
+            ReverseDict[p] = []
+        ReverseDict[p].push char
+
+
+
+
+###
+Get list of characers matching given pinyin.
+###
+module.exports.lookup = (pinyin) ->
+    ReverseDict[changeTone(pinyin,5)] ? []
+
+
+###
+A sentence builder which makes it easy to build a list of characters with modified tones when necessary.
+###
 class module.exports.Sentence
     constructor: (chars = null) ->
         @sentence = []
@@ -52,16 +180,16 @@ class module.exports.Sentence
         i = -1
         while chars.length > ++i
             char = chars[i]
-            throw "Unrecognized char: " + char if not Dictionary.hasOwnProperty(char)
-            pinyin = Dictionary[char]
-            # changing the tone of the character？
-            if chars.length-i > i
-                switch chars[i+1]
-                    when "1" then pinyin = _changeTone(pinyin, 1)
-                    when "2" then pinyin = _changeTone(pinyin, 2)
-                    when "3" then pinyin = _changeTone(pinyin, 3)
-                    when "4" then pinyin = _changeTone(pinyin, 4)
-                    when "5" then pinyin = _changeTone(pinyin, 5)
+            throw "Unrecognized char: " + char if not Dict.hasOwnProperty(char)
+            pinyin = Dict[char]
+            pinyin = pinyin[0] if Array.isArray(pinyin)
+            if chars.length-1 > i
+                # changing the tone of the character？
+                toneModifier = parseInt(chars[i+1])
+                if 1 <= toneModifier and 5 >= toneModifier
+                    pinyin = changeTone(pinyin, toneModifier)
+                    i++ # skip next char
+
             # add to sentence
             @sentence.push
                 char: char
@@ -72,51 +200,51 @@ class module.exports.Sentence
     getChars: ->
         ret = ""
         for w in @sentence
-            for c in w
-                ret += w.char
+            ret += w.char
         ret
 
     getPinyin: ->
         ret = ""
         for w in @sentence
             if "" isnt ret
-                w += " "
-            for c in w
-                ret += w.pinyin
+                ret += " "
+            ret += w.pinyin
         ret
 
     toString: ->
         @getChars()
 
-
     ###
-    Change tone of given pinyin
-    @param newTone integer between 1 and 5
+    Get whether given string of characters matches this sentence.
+    @return TRUE if and if only if fully matches or a number indicating number of mismatched chars (if 0 is returned
+    then there are no mismatched chars but the input string isn't yet fully matching).
     ###
-    _changeTone: (pinyin, newTone) ->
-        # assume there is only one toned character in the pinyin. Thus as soon as we've made our first change
-        # we will return
-        i = -1
+    matches: (actual) ->
+        expected = @getChars().split("")
+        actual = actual.split("")
 
-        vowels = [
-            ['ā', 'á', 'ă', 'à', 'a']
-            ['ē', 'é', 'ĕ', '?', 'e']
-            ['ī', '?', 'ĭ', 'ì', 'i']
-            ['ō', 'ó', 'ŏ', '?', 'o']
-            ['ū', 'ú', 'ŭ', '?', 'u']
-        ]
+        # walk through one by one
+        a = 0
+        e = 0
+        incorrect = 0
+        while expected.length > e and actual.length > a
+            # skip unimportant characters
+            if 0 < ["！","。","，","；"," "].indexOf(expected[e])
+                e++
+            else if 0 < ["!",".",",",";"," "].indexOf(actual[a])
+                a++
+            else
+                incorrect++ if expected[e] isnt actual[a]
+                a++
+                e++
 
-        while pinyin.length > ++i
-            char = pinyin.charAt(i)
+        # fully matched?
+        incorrect = true if e is expected.length and 0 is incorrect
 
-            for tones in vowels
-                ti = 1
-                while 4 >= ti   # finish at 4 - we skip the first tone (neutral)
-                    # found a tone we need to change?
-                    if tones[ti-1] is char and newTone isnt ti
-                        char = tones[newTones - 1]
-                        return pinyin.substr(0,i) + char + (pinyin.substr(i+1))
+        incorrect
 
-                    ti++
 
-        return pinyin
+
+
+
+

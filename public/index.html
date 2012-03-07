@@ -10,9 +10,8 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
 
-    <link rel="stylesheet" href="reset.css" />
-    <link rel="stylesheet" href="jquery.mobile-1.1.0-rc.1.min.css" />
-    <link rel="stylesheet" href="app.css" />
+    <link rel="stylesheet" href="/app.css" media="screen, projection" />
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0-rc.1/jquery.mobile-1.1.0-rc.1.min.css" media="screen, projection" />
 
 </head>
 
@@ -20,7 +19,7 @@
     <div id="page-home" data-url="home" data-title="中文!" data-role="page">
         <section class="content">
             <h2>中文</h2>
-            <p>你好! This website for practising Mandarin writing and translation, drawing on the the <a href="http://www.meridiandao.co.uk/">MECS study program</a> syllabus.</p>
+            <p>你好! This website is for practising Mandarin writing and translation, drawing on the <a href="http://www.meridiandao.co.uk/">MECS study program</a> syllabus.</p>
             <p>Choose your level:</p>
         </section>
     </div>
@@ -29,28 +28,44 @@
         <header data-role="header" data-position="inline">
             <a href="#page-home" data-icon="home" data-mini="true" data-iconpos="notext">Home</a>
             <h1></h1>
+            <a id="skipbtn" href="#" data-icon="arrow-r" data-mini="true" data-iconpos="notext">Skip</a>
         </header>
         <section class="content">
             <p class="intro">Translate to Mandarin:</p>
-            <p class="sentence"></p>
-            <div class="translation"></div>
-            <div class="input">
-                <input type="text" name="input" value="" />
-                <span class="progress"></span>
-                <button class="hint" data-icon="help" data-mini="true" data-inline="true">Show hint</button>
-                <p class="hint"></p>
-            </div>
+            <p id="sentence"></p>
+            <form>
+                <label id="zhongwen_label" for="zhongwen">中文:<span id="progress"></span></label>
+                <div id="nav">
+                    <button data-icon="arrow-r" data-iconpos="right" data-mini="true">Next</button>
+                </div>
+                <textarea id="zhongwen" name="zhongwen" rows="1"></textarea>
+                <label for="pinyin">Or use pinyin:</label>
+                <input type="text" id="pinyin" name="pinyin" size="7" />
+                <div id="suggestions"><table cellpadding='0' cellspacing='0'><tr></tr></table></div>
+            </form>
         </section>
     </div>
 
     <footer>
-        <p><a href="http://hiddentao.com/blog/whatever">About</a> | <a href="mailto:ram@hiddentao.com">Contact</a> | <a href="https://github.com/hiddentao/zhongwen">Source</a></p>
-        <p>Developed by <a href="http://twitter.com/hiddentao">Ramesh Nair</a></p>
+        <p>By <a href="http://twitter.com/hiddentao">Ramesh Nair</a> | <a href="https://github.com/hiddentao/zhongwen">github</a></p>
     </footer>
 
-    <script type="text/javascript" src="app.js"></script>
-    <script type="text/javascript">var App = require('bootstrap'); var app = new App();</script>
-    <script type="text/javascript" src="jquery.mobile-1.1.0-rc.1.min.js"></script>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="/app.js"></script>
+    <script type="text/javascript">app.require('bootstrap');</script>
+    <script type="text/javascript" src="http://code.jquery.com/mobile/1.1.0-rc.1/jquery.mobile-1.1.0-rc.1.min.js"></script>
+
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-11640584-7']);
+      _gaq.push(['_setDomainName', 'zhongwen.co.uk']);
+      _gaq.push(['_trackPageview']);
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
 
 </body>
 

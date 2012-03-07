@@ -1,4 +1,5 @@
 Sentence = require("dict").Sentence
+data = require("data")
 
 
 class SentenceBuilder
@@ -17,12 +18,23 @@ class SentenceBuilder
 
 
 class Units_1_To_4 extends SentenceBuilder
-    next: -> {
-        en: "He is Mr. Wang"
-        cn: "他是王先生5"
-    }
+    constructor: ->
+        @_sentences = []
+        tokens = data.Units1to4.split("\n")
+        i = 0
+        while tokens.length-1 > i
+            @_sentences.push [tokens[i], tokens[i+1]]
+            i += 2
+
+    next: ->
+        s = @_sentences[parseInt(Math.random() * @_sentences.length)]
+        {
+            en: s[0]
+            cn: new Sentence(s[1])
+        }
+
     shortDesc: ->
-        return "units 1 to 4"
+        return "Units 1 to 4"
 
 
 module.exports =
