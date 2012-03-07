@@ -9,7 +9,6 @@
     },
 
     "/app.js" : {
-        "minify": false,
         "input" : {
             "dependency": [
                 "es5-shimify",
