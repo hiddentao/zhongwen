@@ -253,7 +253,7 @@ Good, we meet at 4pm!
 Please may I ask Mr. Wang, are we or aren’t we meeting tomorrow morning at 10am?
 请问玩先生，我们是不是明天上午十点见？
 No (isn’t), we’re meeting tomorrow morning at 10:30am.
-不是，我们明天上午是点半见
+不是，我们明天上午十点半见
 Are we or aren’t we meeting in the library?
 我们是不是在图书馆见？
 Yes (is), we are meeting in the library.
