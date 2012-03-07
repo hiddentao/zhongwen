@@ -2,6 +2,7 @@
     "/" : "./public",
 
     "/app.css" : {
+	"build": "./gh-pages/app.css",
         "input": [
             "./css/reset.css",
             "./css/main.styl"
@@ -9,6 +10,7 @@
     },
 
     "/app.js" : {
+	"build" : "./gh-pages/app.js",
         "input" : {
             "dependency": [
                 "es5-shimify",
