@@ -1,4 +1,7 @@
-Dict =
+###
+Chinese (simplified) character dictionary
+###
+Dict = exports.Dict =
     "？": "?"
     "！": "!"
     "。": "."
@@ -55,7 +58,7 @@ Dict =
     "什" : "shén"
     "么" : "me"
     "儿" : "ér"
-    "哪" : "nǎ"
+    "哪" : [ "nǎ", "něi" ]
     "谁" : [ "shéi", "shuí" ]
     "您" : "nín"
     "贵" : "guì"
@@ -89,6 +92,7 @@ Dict =
     "分" : "fēn"
     "刻" : "kè"
     "半" : "bàn"
+    "零" : "líng"
     "一" : "yī"
     "二" : "èr"
     "两" : "liǎng"
@@ -105,6 +109,28 @@ Dict =
     "然" : "rán"
     "可" : "kě"
     "但" : "dàn"
+    "老" : "lǎo"
+    "师" : "shī"
+    "喜" : "xǐ"
+    "欢" : "huān"
+    "哥" : "gē"
+    "弟" : "dì"
+    "妹" : "mèi"
+    "美" : "měi"
+    "法" : "fǎ"
+    "本" : "běn"
+    "时" : "shí"
+    "候" : "hōu"
+    "会" : "huì"
+    "要" : "yào"
+    "想" : "xiǎng"
+    "热" : "rè"
+    "比" : "bǐ"
+    "这" : [ "zhè", "zhèi" ]
+    "那" : [ "nà", "nèi" ]
+    "做" : "zuò"
+    "几" : "jǐ"
+
 
 
 ###
@@ -122,7 +148,7 @@ changeTone = (pinyin, newTone) ->
         ['ī', 'í', 'ǐ', 'ì', 'i']
         ['ō', 'ó', 'ǒ', 'ò', 'o']
         ['ū', 'ú', 'ǔ', 'ù', 'u', ]
-        ['ǖ', 'ǘ', 'ǚ', 'ǜ', 'ü', ]
+        ['ǖ', 'ǘ', 'ǚ', 'ǜ', 'u', ] # use 'u' for neutral so that user can type it in (orig = ü)
     ]
 
     while pinyin.length > ++i
@@ -156,7 +182,7 @@ for own char, pinyin of Dict
 
 
 ###
-Get list of characers matching given pinyin.
+Get list of characters matching given pinyin.
 ###
 module.exports.lookup = (pinyin) ->
     ReverseDict[changeTone(pinyin,5)] ? []
@@ -180,7 +206,9 @@ class module.exports.Sentence
         i = -1
         while chars.length > ++i
             char = chars[i]
-            throw "Unrecognized char: " + char if not Dict.hasOwnProperty(char)
+            if not Dict.hasOwnProperty(char)
+                console.log [chars, i]
+                throw "Unrecognized char: " + char
             pinyin = Dict[char]
             pinyin = pinyin[0] if Array.isArray(pinyin)
             if chars.length-1 > i

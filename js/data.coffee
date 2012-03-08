@@ -19,7 +19,7 @@ Is or isn’t your surname Wang? Are you or aren’t you called called Wang Guoz
 Mr. Wang is very good. (or very well)
 王先生很好
 Thank you(polite) Miss. Wang and Mr. Ying.
-谢谢您，王小接，英先生
+谢谢您，王小姐，英先生
 I, you, him (=he), we’re all studying Chinese, we’re all not studying English.
 我，你，他，我们都学中文，我们都不学英文
 Who are they?
@@ -251,7 +251,7 @@ No (isn’t), we are meeting at 4pm in the afternoon.
 Good, we meet at 4pm!
 好，我们四点见！
 Please may I ask Mr. Wang, are we or aren’t we meeting tomorrow morning at 10am?
-请问玩先生，我们是不是明天上午十点见？
+请问王先生，我们是不是明天上午十点见？
 No (isn’t), we’re meeting tomorrow morning at 10:30am.
 不是，我们明天上午十点半见
 Are we or aren’t we meeting in the library?
@@ -301,3 +301,52 @@ I am in Beijing on the 6th, in London on the 26th, we meet in London (ba)
 We meet at 11:30am in the morning on Sunday, not at 11:45am!
 我们星期天上午十一点半见，不是十一点四十五分
 """
+
+
+
+exports.Unit5 = """His elder brother is fond of drinking Chinese wine
+他哥哥5喜欢喝中国酒
+His elder brother would like to drink Chinese wine
+他哥哥5想喝中国酒
+Her dad would like to drink good English tea today afternoon
+她爸爸今天下午想喝好英国茶
+Mr. Wang is in the London University studying Japanese at 3pm on Saturday afternoon
+王先生星期六下午三点在伦敦大学学日文
+His mum is or isn't a French teacher at the university in London, England?
+他妈妈是不是英国伦敦大学法文老师？
+At what time will your younger brother go to the US university to study English?
+你弟弟会在什么时候去美国大学学英文？
+We meet American students in Beijing in which year, in which month and on which day?
+我们哪年哪月哪天在北京见美国学生？
+Hello(polite) Mr. Wang, on what day will you(polite) goto Japan?
+您好，王先生，您哪天去日本？
+Please may I ask, at what time we eat food?
+请问我们什么时候吃饭？
+What is your elder brother doing tomorrow morning?
+你哥哥明天上午做什么？
+Miss. Wang wants to study French at noon on Thursday
+王小姐星期四中午要学法文
+My younger sister wants to goto Beijing tomorrow
+我妹妹明天要去北京
+Your younger brother is in the library reading books in the morning, right?
+你弟弟上午在图书馆看书吧？
+Mr, for how many hours do you goto America on Wednesday?
+先生，星期三几点去美国？
+Teacher Ying plans to goto the university tomorrow early morning
+英老师今天早上想去大学
+Today is hotter than yesterday
+今天比昨天热
+Is France hotter than Japan?
+法国比日本热吗？
+What will you(polite) do tomorrow evening?
+您明天晚上要做什么？
+I will goto meet Mr. Liu, right?
+我要去见六先生吧？
+I would like to meet you on July 21st
+我想七月二十一号见你
+I like to cook food
+我喜欢做饭
+"""
+
+
+
