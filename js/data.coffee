@@ -331,7 +331,7 @@ My younger sister wants to goto Beijing tomorrow
 Your younger brother is in the library reading books in the morning, right?
 你弟弟上午在图书馆看书吧？
 Mr, for how many hours do you goto America on Wednesday?
-先生，星期三几点去美国？
+先生，你星期三几点去美国？
 Teacher Ying plans to goto the university tomorrow early morning
 英老师今天早上想去大学
 Today is hotter than yesterday
