@@ -10,12 +10,14 @@ exports.testObjectsExist = (test) ->
 
 
 exports.testPinyinLookup = (test) ->
-    test.expect(4)
+    test.expect(6)
 
     test.arrayEqual = (e, a, m) ->
         test.strictEqual JSON.stringify(e), JSON.stringify(a)
 
     test.arrayEqual dict.lookup("shi"), ["是","十","师","时"]
+    test.arrayEqual dict.lookup("Shi"), ["是","十","师","时"]
+    test.arrayEqual dict.lookup("SHI"), ["是","十","师","时"]
     test.arrayEqual dict.lookup("?"), ["？"]
     test.arrayEqual dict.lookup("nei"), ["哪", "那"]
     test.arrayEqual dict.lookup("na"), ["哪", "那"]

@@ -185,6 +185,7 @@ for own char, pinyin of Dict
 Get list of characters matching given pinyin.
 ###
 module.exports.lookup = (pinyin) ->
+    pinyin = ("" + pinyin).toLowerCase()
     ReverseDict[changeTone(pinyin,5)] ? []
 
 
