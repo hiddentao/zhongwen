@@ -251,23 +251,47 @@ class module.exports.Sentence
         expected = @getChars().split("")
         actual = actual.split("")
 
-        # walk through one by one
+        # current character positions
         a = 0
         e = 0
+
+        # no. of real comparable characters in each string
+        a_real_chars = 0
+        e_real_chars = 0
+
+        # no. of mismatches
         incorrect = 0
+
+        puncts = ["？","！","。","，","；"," ","?","!",".",",",";"," "]
+
+        # keep going until both pointers reach end of sentence
         while expected.length > e and actual.length > a
             # skip unimportant characters to make things easier
-            if 0 < ["？", "！","。","，","；"," "].indexOf(expected[e])
+            if 0 <= puncts.indexOf(expected[e])
                 e++
-            else if 0 < ["?", "!",".",",",";"," "].indexOf(actual[a])
+            else if 0 <= puncts.indexOf(actual[a])
                 a++
             else
+                e_real_chars++
+                a_real_chars++
+
                 incorrect++ if expected[e] isnt actual[a]
+
                 a++
                 e++
 
+        # how many more real chars were remaining to be matched
+        while expected.length > e
+            e_real_chars++ if 0 > puncts.indexOf(expected[e])
+            e++
+
+        # too much input given?
+        while actual.length > a
+            incorrect++ if 0 > puncts.indexOf(actual[a])
+            a++
+
         # fully matched?
-        incorrect = true if e is expected.length and 0 is incorrect
+        incorrect = true if 0 is incorrect and a_real_chars is e_real_chars
 
         incorrect
 
