@@ -1,7 +1,7 @@
 # ZhongWen web app #
 
-This is the source code to the [http://zhongwen.co.uk] web app. It is for practising Mandaring writing and translation
-and is based on the syllabus from the [MECS study program](http://www.meridiandao.co.uk/).
+This is the source code to the [http://zhongwen.co.uk] mobile web app. It is for practising Mandarin writing and
+translation and is based on the syllabus from the [MECS study program](http://www.meridiandao.co.uk/).
 
 This app is built using:
 
@@ -18,6 +18,8 @@ out the **canvas_stroke_input** branch in the repo.
 
 For now you can input pinyin or mandarin characters directly if you have a Chinese input support installed for your
 keyboard.
+
+Tested on desktop (Chrome, Firefox) and mobile (iOS, Android).
 
 
 ## License ##
