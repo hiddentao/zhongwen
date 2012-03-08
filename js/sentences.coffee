@@ -59,10 +59,10 @@ class Unit_5 extends SentenceBuilder
 
 
 module.exports =
-    Beginner: [
-        ['1to4', new Units_1_To_4]
-        ['5', new Unit_5]
-    ]
+    Beginner:
+        '0_1to4': new Units_1_To_4
+        '1_5': new Unit_5
+
 
 
 

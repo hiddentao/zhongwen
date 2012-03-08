@@ -66,10 +66,10 @@ class module.exports extends Spine.Controller
                 category: "#{maincat}-all"
                 label: "All"
 
-            for subcat in subcats
+            for subcat,builder of subcats
                 thisCat.push
-                    category: "#{maincat}-#{subcat[0]}"
-                    label: subcat[1].shortDesc()
+                    category: "#{maincat}-#{subcat}"
+                    label: builder.shortDesc()
 
             ret.push thisCat
 
