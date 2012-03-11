@@ -322,7 +322,7 @@ Is Beijing hotter than London? Is Shanghai hotter or not than London?
 北京比伦敦热吗？上海比不比伦敦热？
 That is teacher Wang, he is not a Japanese teacher, is an English teacher.
 那是王老师，他不是日文老师，是英文老师。
-Here isn't good, there isn't good, here-there both aren't good.
+Here not good, there also not good, here-there both are not good.
 这儿不好，那儿也不好，这儿那儿都不好。
 Although I like reading Chinese books I don't have Chinese books
 虽然我喜欢看中文书，可是我没有中文书。
