@@ -12,15 +12,15 @@ exports.testObjectsExist = (test) ->
 exports.testPinyinLookup = (test) ->
     test.expect(6)
 
-    test.arrayEqual = (e, a, m) ->
+    assertArrayEqual = (e, a, m) ->
         test.strictEqual JSON.stringify(e), JSON.stringify(a)
 
-    test.arrayEqual dict.lookup("shi"), ["是","十","师","时"]
-    test.arrayEqual dict.lookup("Shi"), ["是","十","师","时"]
-    test.arrayEqual dict.lookup("SHI"), ["是","十","师","时"]
-    test.arrayEqual dict.lookup("?"), ["？"]
-    test.arrayEqual dict.lookup("nei"), ["哪", "那"]
-    test.arrayEqual dict.lookup("na"), ["哪", "那"]
+    assertArrayEqual dict.lookup("shi"), ["是","十","师","时"]
+    assertArrayEqual dict.lookup("Shi"), ["是","十","师","时"]
+    assertArrayEqual dict.lookup("SHI"), ["是","十","师","时"]
+    assertArrayEqual dict.lookup("?"), ["？"]
+    assertArrayEqual dict.lookup("nei"), ["哪", "那"]
+    assertArrayEqual dict.lookup("na"), ["哪", "那"]
 
     test.done()
 
@@ -76,21 +76,24 @@ exports.sentence = {
 
         s = new dict.Sentence("先生！，星期三几点去美国？")
 
+        assertObjectEqual = (e, a, m) ->
+            test.strictEqual JSON.stringify(e), JSON.stringify(a)
+
         # check that punctuation is ignored
-        test.strictEqual s.matches("先生!!！?？！？;,  ，；.。星"), 0, "skip puncts"
+        assertObjectEqual s.matches("先生!!！?？！？;,  ，；.。星"), {num:0, chars:["期","三","几","点","去","美","国"]}, "skip puncts"
 
         # test incorrect and correct count
-        test.strictEqual s.matches("先生期，"), 1, "1 wrong"
-        test.strictEqual s.matches("先期生，"), 2, "2 wrong"
-        test.strictEqual s.matches("先生星，"), 0, "0 wrong"
+        assertObjectEqual s.matches("先生期，"), {num:1, chars:["星","期","三","几","点","去","美","国"]}, "1 wrong"
+        assertObjectEqual s.matches("先期生，"), {num:2, chars:["生","星","期","三","几","点","去","美","国"]}, "2 wrong"
+        assertObjectEqual s.matches("先生星，"), {num:0, chars:["期","三","几","点","去","美","国"]}, "0 wrong"
 
         # test end of sentence boundary cases
-        test.strictEqual s.matches("先生星期三几点去美"), 0, "almost full match"
-        test.strictEqual s.matches("先生星期三几点去美？"), 0, "almost full match with ?"
-        test.strictEqual s.matches("先生星期三几点去美国"), true, "full match"
-        test.strictEqual s.matches("先生星期三几点去美国？"), true, "full match  with ?"
-        test.strictEqual s.matches("先生星期三几点去美国老"), 1, "too much"
-        test.strictEqual s.matches("先生星期三几点去美国老？"), 1, "too much with ?"
+        assertObjectEqual s.matches("先生星期三几点去美"), {num:0, chars:["国"]}, "almost full match"
+        assertObjectEqual s.matches("先生星期三几点去美？"), {num:0, chars:["国"]}, "almost full match with ?"
+        assertObjectEqual s.matches("先生星期三几点去美国"), true, "full match"
+        assertObjectEqual s.matches("先生星期三几点去美国？"), true, "full match  with ?"
+        assertObjectEqual s.matches("先生星期三几点去美国老"), {num:1, chars:[]}, "too much"
+        assertObjectEqual s.matches("先生星期三几点去美国老？"), {num:1, chars:[]}, "too much with ?"
 
         test.done()
 

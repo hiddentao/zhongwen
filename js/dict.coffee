@@ -246,8 +246,16 @@ class module.exports.Sentence
 
     ###
     Get whether given string of characters matches this sentence.
-    @return TRUE if and if only if fully matches or a number indicating number of mismatched chars (if 0 is returned
-    then there are no mismatched chars but the input string isn't yet fully matching).
+
+    Returns TRUE if and if only if fully matches or an object.
+
+    If there is a mismatch then it returns:
+        {
+            num: number indicating number of mismatched chars
+                (if 0 is returned then there are no mismatched chars but the there may be missing chars, i.e.
+                the string is unfinished,
+            chars: the mismatching and missing chars. if this is empty then too many chars were given in the input.
+        }
     ###
     matches: (actual) ->
         expected = @getChars().split("")
@@ -261,8 +269,9 @@ class module.exports.Sentence
         a_real_chars = 0
         e_real_chars = 0
 
-        # no. of mismatches
+        # mismatches
         incorrect = 0
+        mismatches = []
 
         puncts = ["？","！","。","，","；"," ","?","!",".",",",";"," "]
 
@@ -277,14 +286,18 @@ class module.exports.Sentence
                 e_real_chars++
                 a_real_chars++
 
-                incorrect++ if expected[e] isnt actual[a]
+                if expected[e] isnt actual[a]
+                    incorrect++
+                    mismatches.push expected[e]
 
                 a++
                 e++
 
         # how many more real chars were remaining to be matched
         while expected.length > e
-            e_real_chars++ if 0 > puncts.indexOf(expected[e])
+            if 0 > puncts.indexOf(expected[e])
+                e_real_chars++
+                mismatches.push expected[e]
             e++
 
         # too much input given?
@@ -293,7 +306,12 @@ class module.exports.Sentence
             a++
 
         # fully matched?
-        incorrect = true if 0 is incorrect and a_real_chars is e_real_chars
+        if 0 is incorrect and a_real_chars is e_real_chars
+            incorrect = true
+        else
+            incorrect =
+                num: incorrect
+                chars: mismatches
 
         incorrect
 

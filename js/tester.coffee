@@ -36,7 +36,7 @@ class module.exports extends Spine.Controller
         # on phones special keyboard input methods sometimes don't trigger events so let's setup a loop
         pollLoop = null
         @zhongwen_input.bind 'focus', =>
-            pollLoop= setInterval @_updateProgress, 1000
+            pollLoop = setInterval @_updateProgress, 1000
         @zhongwen_input.bind 'blur', =>
             clearInterval(pollLoop) if pollLoop
             pollLoop = null
@@ -113,18 +113,12 @@ class module.exports extends Spine.Controller
     Give the user a hint.
     ###
     _showHint: =>
-        # find first character which mismatches
-        chars = @current_sentence.cn.getChars().split("")
-        val = @zhongwen_input.val().split("")
-        i = 0
-        while chars.length > i and val.length > i and chars[i] is val[i]
-            i++
-
-        if chars.length > i
+        incorrect = @current_sentence.cn.matches(@zhongwen_input.val())
+        if true isnt incorrect and 0 < incorrect.chars.length
             # Before doing anything else, force-end the poll loop which auto-updates the progress msg
             @zhongwen_input.trigger 'blur'
             # show it's pinyin as a hint
-            pinyin = dict.Dict[chars[i]]
+            pinyin = dict.Dict[incorrect.chars[0]]
             pinyin = pinyin[0] if Array.isArray(pinyin)
             @progress.attr("class", "hint").html("hint: <em>#{pinyin}</em>").show()
 
@@ -145,8 +139,8 @@ class module.exports extends Spine.Controller
             @nav_next.show()
             @help.hide()
         else
-            if 0 < incorrect
-                @progress.attr("class", "bad").text(incorrect + " incorrect")
+            if 0 < incorrect.num
+                @progress.attr("class", "bad").text(incorrect.num + " incorrect")
             else
                 @progress.attr("class", "good").text("good so far")
 
