@@ -11,7 +11,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
 
     <link rel="stylesheet" href="/app.css" media="screen, projection" />
-    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0-rc.1/jquery.mobile-1.1.0-rc.1.min.css" media="screen, projection" />
+    <link rel="stylesheet" href="jquery.mobile-1.1.0-rc.1.min.css" media="screen, projection" />
 
 </head>
 
@@ -38,6 +38,9 @@
                 <div id="nav">
                     <button data-icon="arrow-r" data-iconpos="right" data-mini="true">Next</button>
                 </div>
+                <div id="help">
+                    <button data-icon="info" data-iconpos="notext" data-mini="true">Show hint</button>
+                </div>
                 <textarea id="zhongwen" name="zhongwen" rows="1"></textarea>
                 <label for="pinyin">Or use pinyin:</label>
                 <input type="text" id="pinyin" name="pinyin" size="7" />
@@ -50,22 +53,10 @@
         <p>By <a href="http://twitter.com/hiddentao">Ramesh Nair</a> | <a href="https://github.com/hiddentao/zhongwen">github</a></p>
     </footer>
 
-    <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="jquery-1.7.1.min.js"></script>
     <script type="text/javascript" src="/app.js"></script>
     <script type="text/javascript">app.require('bootstrap');</script>
-    <script type="text/javascript" src="http://code.jquery.com/mobile/1.1.0-rc.1/jquery.mobile-1.1.0-rc.1.min.js"></script>
-
-    <script type="text/javascript">
-      var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', 'UA-11640584-7']);
-      _gaq.push(['_setDomainName', 'zhongwen.co.uk']);
-      _gaq.push(['_trackPageview']);
-      (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-      })();
-    </script>
+    <script type="text/javascript" src="jquery.mobile-1.1.0-rc.1.min.js"></script>
 
 </body>
 

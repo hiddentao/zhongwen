@@ -12,6 +12,7 @@ class module.exports extends Spine.Controller
     elements:
         "#sentence" : "sentence"
         "#nav" : "nav_next"
+        "#help" : "help"
         "#progress" : "progress"
         "form textarea" : "zhongwen_input"
         "form input" : "pinyin_input"
@@ -50,6 +51,10 @@ class module.exports extends Spine.Controller
             e.preventDefault()
             @_showNextSentence()
 
+        # help button
+        $("button", @help).bind 'vclick', (e) =>
+            e.preventDefault()
+            @_showHint()
 
 
 
@@ -81,7 +86,7 @@ class module.exports extends Spine.Controller
     # Start the sentences for the given category
     #
     start: (category) ->
-        @category = category;
+        @category = category
 
         # work out the category and subcat
         [maincat, subcat] = @category.split("-");
@@ -105,6 +110,26 @@ class module.exports extends Spine.Controller
 
 
     ###
+    Give the user a hint.
+    ###
+    _showHint: =>
+        # find first character which mismatches
+        chars = @current_sentence.cn.getChars().split("")
+        val = @zhongwen_input.val().split("")
+        i = 0
+        while chars.length > i and val.length > i and chars[i] is val[i]
+            i++
+
+        if chars.length > i
+            # Before doing anything else, force-end the poll loop which auto-updates the progress msg
+            @zhongwen_input.trigger 'blur'
+            # show it's pinyin as a hint
+            pinyin = dict.Dict[chars[i]]
+            pinyin = pinyin[0] if Array.isArray(pinyin)
+            @progress.attr("class", "hint").html("hint: <em>#{pinyin}</em>").show()
+
+
+    ###
     Check user's input and update progress
     ###
     _updateProgress: =>
@@ -116,13 +141,14 @@ class module.exports extends Spine.Controller
         incorrect = @current_sentence.cn.matches(actual)
 
         if incorrect is true
-            @progress.removeClass("bad").addClass("good").text("you did it!")
+            @progress.attr("class", "good").text("you did it!")
             @nav_next.show()
+            @help.hide()
         else
             if 0 < incorrect
-                @progress.removeClass("good").addClass("bad").text(incorrect + " incorrect")
+                @progress.attr("class", "bad").text(incorrect + " incorrect")
             else
-                @progress.removeClass("bad").addClass("good").text("good so far")
+                @progress.attr("class", "good").text("good so far")
 
         @progress.show()
 
@@ -174,6 +200,7 @@ class module.exports extends Spine.Controller
         # reset the display
         @progress.hide()
         @nav_next.hide()
+        @help.show()
         @sentence.text("")
         @zhongwen_input.val("")
         @pinyin_input.val("")

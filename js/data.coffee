@@ -304,9 +304,9 @@ Mr. Wang is studying Japanese here on Saturday afternoon at 3pm.
 王先生星期六下午三点在这儿学日文。
 Her mum is or isn't a French teacher at the London, England university?
 她妈妈是不是英国伦敦大学法文老师？
-Your brother will at what time goto the American university to study English?
+At what time will your brother goto the American university to study English?
 你弟弟会在什么时候去美国大学学英文？
-In what year, in what month and on which day do we meet American students in Beijing?
+In which year, in which month and on which day are we meeting American students in Beijing?
 我们哪年哪月哪天在北京见美国学生？
 This is Chinese tea, that is English tea.
 这是中国茶，那是英国茶。
