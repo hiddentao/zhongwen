@@ -16,11 +16,11 @@ Does he or doesn’t he read books?
 他看不看书？
 Is or isn’t your surname Wang? Are you or aren’t you called called Wang Guozhong?
 你姓不姓王？你叫不叫王国中？
-Mr. Wang is very good. (or very well)
+Mr. Wang is very very well.
 王先生很好
 Thank you(polite) Miss. Wang and Mr. Ying.
 谢谢您，王小姐，英先生
-I, you, him (=he), we’re all studying Chinese, we’re all not studying English.
+I, you, him, we’re all studying Chinese, we’re all not studying English.
 我，你，他，我们都学中文，我们都不学英文
 Who are they?
 他们是谁？
@@ -42,7 +42,7 @@ Are you called Wang Shengguo?
 你叫王生国吗？
 Are you in London, England?
 你在英国伦敦吗？
-Does Mr. Wang have wine?
+Does Miss. Wang have wine?
 王小姐有酒吗？
 Is Miss. Ying smart?
 英小姐聪明吗？
@@ -122,32 +122,32 @@ Thank you, thanks Miss. Wen, also thanks to Mr. Wang!
 谢谢你，谢谢文小姐，也谢谢王先生！
 Goodbye, we will meet in London!
 再见，我们在伦敦见！
-Goodbye, we will meet again in Beijing.
+Goodbye (ba), we will meet again in Beijing (ba).
 再见吧，我们在北京再见吧！
 Miss. Wang, we meet in London! Goodbye!
 王小姐，我们在伦敦见！再见！
-Thank you, Xiao Wen , les meet in Chinese restaurant! Goodbye!
+Thank you, Xiao Wen , let's meet in Chinese restaurant! Goodbye!
 谢谢你，小文，我们在中国饭馆儿见！再见！
 Who is your dad meeting in Shanghai in 2010?
 二零一零年你爸爸在上海见谁？
 Who is meeting Mr. Wang today at 12.15pm noon?
-今天中午十二点一刻谁见王先生？
+今天中午十二点一2刻谁见王先生？
 Who is Mr. Wang meeting today at 12.15pm noon?
-今天中午十二点一刻王先生见谁？
+今天中午十二点一2刻王先生见谁？
 Miss. Ying is meeting us on Sunday.
 英小姐星期天见我们
 I am not in London in March, or in April.
 我三月不在伦敦，也四月不在
 We are in Shanghai in May.
 我们五月在上海
-I treat you to eat English food tomorrow night!
+I treat you to eat English food tomorrow evening (ba)!
 我明天晚上请你吃英国饭吧！
 His mum is studying English at 8pm today evening.
-他妈吗今天晚上八点学英文
+他妈妈今天晚上八点学英文
 Miss. Wang, today is Thursday, right?
 王小姐，今天是星期四吧？
 Mr. Ying, is or isn’t tomorrow the 31st of October?
-英先生，明天是不是十月三是一号？
+英先生，明天是不是十月三十一号？
 Today is the 26th of December, 2009.
 今天是二零零九年十二月二十六号
 The 7th of September is a Sunday, not a Saturday.
@@ -155,7 +155,7 @@ The 7th of September is a Sunday, not a Saturday.
 I am in London on Monday, Tuesday, and Wednesday.
 我星期一，星期二，星期三，三天都在伦敦
 My mum is in the library on Monday evening at 7:30pm, on Thursday afternoon at 3pm, and on Friday morning at 10am.
-我妈吗星期一晚上七点半，星期四下午三点，星期五上午十点都在图书馆
+我妈妈星期一晚上七点半，星期四下午三点，星期五上午十点都在图书馆
 I meet Mr. Ying today at 6:20.
 我今天六点二十分见英先生
 He will be in the restaurant tomorrow evening at 7:30pm.
@@ -166,7 +166,7 @@ I am in the university library on Monday, Tuesday, Wednesday, Thursday, Friday, 
 我星期一，星期二，星期三，星期四，星期五，星期六，星期天都在大学图书馆
 Her mum is in Beijing in January, February and March; in London in April, May, June and July; in Shanghai in August, September and October; in Beijing in November and December.
 她妈妈一月，二月，三月都在北京；四月，五月，六月，七月都在伦敦；八月，九月十月都在上海；十一月十二月都在北京
-I was in London university at 9 o’clock on September 9th, 1999.  (九号九 点?)
+I was in London university at 9 o’clock on September 9th, 1999.
 我一九九九年九月九号九点在伦敦大学
 Today morning all the students are in, in the afternoon none are in.
 今天上午学生都在，下午都不在
@@ -182,13 +182,13 @@ Are you eating Chinese food at noon?
 你中午吃中国饭吗？
 Are you drinking Chinese tea on Sunday?
 你星期天喝中国茶吗？
-Please may I ask, what do you (polite) drink? drink wine?
+Please may I ask, what do you(polite) drink? drink wine?
 请问，您喝什么？喝酒吗？
 I don’t drink wine, I shall drink tea (ba).
-我不喝九，我喝茶吧
+我不喝酒，我喝茶吧
 What do you drink? drink wine, right?
 你喝什么？喝酒吧？
-Well, I drink (好， 我喝),  do you drink?
+Well, I drink, do you drink?
 好，我喝，你喝吗？
 Where are you? in Beijing, right?
 你在哪儿？在北京吧？
@@ -200,7 +200,7 @@ My surname is Wen, I am called Wen Xiaoshu.
 我姓文，我叫文小书
 Do you read English language books?
 你看英文书吗？
-I don’t, I read Chinese language books. We both/all read Chinese language books (ba).
+I don’t (read), I read Chinese language books. We both/all read Chinese language books (ba).
 不看，我看中文书我们都看中文书吧
 Is Wang Wenguo smart or not?
 王文国聪明不聪明？
@@ -210,56 +210,48 @@ Please may I ask Miss, what is your name (politely)?
 请问小姐，您贵姓？
 My surname is Ying, am called Yueyue, full name is Ying Yueyue.
 我姓英，叫月月，我叫英月月
-Little moon, where are you? in or not in the library?
+XiaoYue, where are you? in or not in the library?
 小月，你在哪儿？在不在图书馆？
-Yes (in), I am in the library. Are you in the library too?
-在，我在图书馆你也在图书馆吗？
+I am in the library. Are you in the library too?
+我在图书馆你也在图书馆吗？
 Hello Mr. Wang, is it the 2nd of March today?
 你好王先生，今天是三月二号吗？
 Yes (is), today is the 2nd of March.
 是，今天是三月二号
-Thank you(polite), Mr. Wang.
-谢谢您，王先生
 Please may I ask, Mr. Wang, is it Tuesday today?
 请问王先生，今天是星期二吗？
-No (isn’t) Miss. Ying, yesterday was Tuesday.
-不是英小姐，昨天是星期二
-Ah (啊), today is Wednesday! thank you(polite), Mr. Wang.
+Yesterday was Tuesday.
+昨天是星期二
+Ah, today is Wednesday! thank you(polite), Mr. Wang.
 啊，今天是星期三！谢谢您，王先生
 Please may I ask Mr. Wang, are we eating food tomorrow evening?
 请问王先生，我们是明天晚上吃饭吗？
 No (isn’t), we are eating food today evening.
 不是，我们是今天晚上吃饭
 Ah, today evening! where eating food today evening? and what food?
-啊，惊天晚上！今天吃饭晚上在哪儿吃饭？吃什么饭？
+啊，今天晚上！今天晚上在哪儿吃饭？吃什么饭？
 At the Chinese restaurant, eating Chinese food.
 在中国饭馆儿，吃中国饭
-Good, thank you(polite)!
-好，谢谢您！
-Mr. Wang, where are you?
-王先生，你在哪儿？
-I am in the Chinese restaurant ah, where are you?
-我在中国饭馆儿啊，你在哪儿？
-I am in the Chinese restaurant too ah!
+I am in the Chinese restaurant, where are you?
+我在中国饭馆儿，你在哪儿？
+I am in the Chinese restaurant too, ah!
 我也在中国饭馆儿啊！
 Ah, we’re both in the Chinese restaurant.
 啊，我们都在中国饭馆儿
 Please may I ask Mr. Wang, are we or aren’t we meeting at 3pm in the afternoon?
 请问王先生，我们是不是下午三点见？
-No (isn’t), we are meeting at 4pm in the afternoon.
-不是，我们下午四点见
+We are meeting at 4pm in the afternoon.
+我们下午四点见
 Good, we meet at 4pm!
 好，我们四点见！
 Please may I ask Mr. Wang, are we or aren’t we meeting tomorrow morning at 10am?
 请问王先生，我们是不是明天上午十点见？
-No (isn’t), we’re meeting tomorrow morning at 10:30am.
-不是，我们明天上午十点半见
+We’re meeting tomorrow morning at 10:30am.
+我们明天上午十点半见
 Are we or aren’t we meeting in the library?
 我们是不是在图书馆见？
 Yes (is), we are meeting in the library.
 是，我们是在图书馆见
-Good, thank you(polite) !
-好，谢谢您！
 Although he is from England, he doesn’t eat English food.
 虽然他是英国人，可是他不吃英国饭
 Although I am from Shanghai, my dad and mom don’t live in Shanghai, they both live in Beijing.
@@ -268,8 +260,8 @@ Although Mr. Wang is a very good person, he is not very smart.
 虽然王先生人很好，但是他不很聪明
 Although I am not in Beijing in March, Mr. Wang is in Beijing in March.
 虽然我三月不在北京，可是王先生三月在北京
-Although wine is very good, I don’t drink wine. You drink wine (ba), I drink Chinese tea.
-虽然酒很好，可是我不喝酒你喝酒吧，我喝茶吧
+Although wine is very good, I don’t drink wine. You drink wine (ba), I drink Chinese tea (ba).
+虽然酒很好，可是我不喝酒你喝酒吧，我喝中国茶吧
 Today, tomorrow we are all in the library.
 今天，明天我们都在图书馆
 We meet at 3pm in the afternoon on the 6th of April, good?
@@ -282,7 +274,7 @@ Today early morning I am in the library, at noon meet Miss. Wang, and in the aft
 今天我早上在图书馆，中午见王小姐，下午学中文
 Because my mum is in Beijing in May, I am also in Beijing in May.
 因为我妈妈五月在北京，所以我五月也在北京
-What do you eat in the early morning? and (what) drink?
+What do you eat in the early morning? and drink?
 你早上吃什么？喝什么？
 What wine do you drink in the evening?
 你晚上喝什么酒？
@@ -290,10 +282,8 @@ I eat Chinese food on Saturday evening, and also eat Chinese food on Sunday even
 我星期六晚上吃中国饭，星期天晚上也吃中国饭
 Are you treating me to Chinese food on Sunday? Thank you!
 你星期天请我吃中国饭吗？谢谢你！
-Because you invite me to eat food, I invite you to drink wine.
+Because you treat me to eat food, I treat you to drink wine.
 因为你请我吃饭，我请你喝酒
-Please may I ask, what is your name (politely)? Is your(polite) surname Wang? you(polite) are Miss. Wang, right?
-请问，您贵姓？您是姓王吗？您是王小姐吧？
 Please may I ask Mr, do you(polite) speak Chinese?
 请问先生，您说中文吗？
 I am in Beijing on the 6th, in London on the 26th, we meet in London (ba)
@@ -304,48 +294,136 @@ We meet at 11:30am in the morning on Sunday, not at 11:45am!
 
 
 
-exports.Unit5 = """His elder brother is fond of drinking Chinese wine
+exports.Unit5 = """His elder brother is fond of drinking Chinese wine.
 他哥哥5喜欢喝中国酒
-His elder brother would like to drink Chinese wine
+His elder brother plans to to drink Chinese wine.
 他哥哥5想喝中国酒
-Her dad would like to drink good English tea today afternoon
+Her dad would like to drink good English tea today afternoon.
 她爸爸今天下午想喝好英国茶
-Mr. Wang is in the London University studying Japanese at 3pm on Saturday afternoon
-王先生星期六下午三点在伦敦大学学日文
-His mum is or isn't a French teacher at the university in London, England?
-他妈妈是不是英国伦敦大学法文老师？
-At what time will your younger brother go to the US university to study English?
+Mr. Wang is studying Japanese here on Saturday afternoon at 3pm.
+王先生星期六下午三点在这儿学日文。
+Her mum is or isn't a French teacher at the London, England university?
+她妈妈是不是英国伦敦大学法文老师？
+Your brother will at what time goto the American university to study English?
 你弟弟会在什么时候去美国大学学英文？
-We meet American students in Beijing in which year, in which month and on which day?
+In what year, in what month and on which day do we meet American students in Beijing?
 我们哪年哪月哪天在北京见美国学生？
-Hello(polite) Mr. Wang, on what day will you(polite) goto Japan?
-您好，王先生，您哪天去日本？
-Please may I ask, at what time we eat food?
-请问我们什么时候吃饭？
-What is your elder brother doing tomorrow morning?
-你哥哥明天上午做什么？
-Miss. Wang wants to study French at noon on Thursday
-王小姐星期四中午要学法文
-My younger sister wants to goto Beijing tomorrow
-我妹妹明天要去北京
-Your younger brother is in the library reading books in the morning, right?
-你弟弟上午在图书馆看书吧？
-Mr, for how many hours do you goto America on Wednesday?
-先生，你星期三几点去美国？
-Teacher Ying plans to goto the university tomorrow early morning
-英老师今天早上想去大学
-Today is hotter than yesterday
-今天比昨天热
-Is France hotter than Japan?
-法国比日本热吗？
-What will you(polite) do tomorrow evening?
-您明天晚上要做什么？
-I will goto meet Mr. Liu, right?
-我要去见六先生吧？
-I would like to meet you on July 21st
-我想七月二十一号见你
-I like to cook food
-我喜欢做饭
+This is Chinese tea, that is English tea.
+这是中国茶，那是英国茶。
+Here is the (Great) British library, not the London library.
+这儿是大英图书馆，不是伦敦图书馆。
+Today I am here, not there; I will be there tomorrow.
+我今天在这儿，不在那儿；我明天会在那儿。
+Shanghai is hotter than London, Beijing is also hotter than London.
+上海比伦敦热，北京也比伦敦热。
+For how many days will your dad goto Shanghai tomorrow? 4 days, he will go for 4 days.
+你爸爸明天会去上海几天？四天，他会去四天。
+Is Beijing hotter than London? Is Shanghai hotter or not than London?
+北京比伦敦热吗？上海比不比伦敦热？
+That is teacher Wang, he is not a Japanese teacher, is an English teacher.
+那是王老师，他不是日文老师，是英文老师。
+Here isn't good, there isn't good, here-there both aren't good.
+这儿不好，那儿也不好，这儿那儿都不好。
+Although I like reading Chinese books I don't have Chinese books
+虽然我喜欢看中文书，可是我没有中文书。
+Mr. Xie likes to eat French food, he plans to to learn to cook French food, but he has no teacher.
+谢先生喜欢吃法国饭，也想学做法国饭，可是他没有老师。
+I want to goto England, I don't want to goto America, I don't like America.
+我要去英国，我不要去美国，我不喜欢美国。
+At what hour on Monday evening does your brother goto study Chinese?
+你哥哥星期一晚上几点去学中文？
+At what hour tomorrow do you goto London? You will be in London on what day?
+你明天几点去伦敦？你会在伦敦几天？
+I like to learn both Japanese and Chinese.
+我既喜欢学日文，也喜欢学中文。
+I don't plan to goto either Beijing or Shanghai.
+我既不想去北京也不想去上海。
+I am neither his elder brother nor his younger brother.
+我既不是他哥哥也不是他弟弟。
+XiaoShi won't cook Chinese food or English food.
+小谢既不会做中国饭也不会做英国饭。
+When will you goto Beijing?
+你什么时候去北京？
+Where is he from?
+他是哪儿人？
+At what hour is he meeting Wang Shengguo?
+他几点见王生国？
+What does he do in the university?
+他在大学做什么？
+What food do you cook today?
+你今天做什么饭？
+In which year do you(polite) goto Shanghai, China?
+您哪年去中国上海？
+In which month does Mr. Xie goto America?
+谢先生哪月去美国
+On which day do we eat Japanese food?
+我们哪天吃日本饭？
+Are you(plural) hot or not?
+你们热不热？
+Would she like or not like her mum?
+她想不想她妈妈？
+Do you(plural) goto or not goto France?
+你们去不去法国？
+Hello, Mr. Wang, on which day do you(polite) goto Japan?
+你好，王先生，您哪天去日本？
+Hello, Miss. Xie, I goto Japan tomorrow.
+你好，谢小姐，我明天去日本。
+Please may I ask Mr. Wang, at what time are we eating supper?
+请问王先生，我们什么时候吃晚饭？
+We are eating supper at 7pm, are you ok with that?
+我们七点吃晚饭，你看好吗？
+Good, we meet at 7pm, goodbye!
+好，我们七点见，再见！
+Please may I ask Mr. Wang, where are we eating supper?
+请问王先生，我们去哪儿吃晚饭？
+We are going to the Shanghai restaurant in the evening to eat dinner.
+我们晚上去上海饭馆儿吃晚饭。
+We meet in the evening in the Shanghai restaurant.
+我们晚上在上海饭馆儿见！
+Mr. Wang, what do you(polite) want to do tomorrow evening?
+王先生，您明天晚上要做什么？
+Tomorrow evening I want to goto meet Mr. Xie.
+我明天晚上要去见谢先生。
+Where will you(polite) be to meet him?
+您在哪儿见他？
+I will meet him in the French restaurant.
+我在法国饭馆儿见他。
+Mr. Wang, Is France hotter than Beijing in October?
+王先生，十月法国比北京热吗？
+Beijing is hotter than France in October.
+十月北京比法国热。
+They are going to Japan in 2010.
+他们二零一零年去日本
+Where are you(plural) drinking tea today afternoon?
+今天下午你们在哪儿喝茶？
+Is your brother reading books in the library every day in the morning?
+你弟弟天天上午都在图书馆看书吗？
+At what hour is Miss. Xie going to America on Wednesday?
+谢小姐星期三几点去美国？
+You are in America in September, and then where are you?
+我九月在美国，那时候你在哪儿？
+You(plural) want to goto Beijing tomorrow.
+我们明天要去北京。
+What is your younger sister doing all of tomorrow morning?
+你妹妹明天上午都做什么？
+At what hour today evening is Mr. Wang meeting Mr. Xie in the restaurant?
+王先生今天晚上几点在饭馆儿见谢先生？
+Miss. Wang plans to meet you(polite) at noon on Thursday, do you want to meet her?
+王小姐星期四中午想见您，您要见她吗？
+I am going to France tomorrow to see my younger sister.
+我明天去法国看我妹妹。
+This is a Chinese language book, not a French language book, that is a French language book.
+这是中文书，不是法文书，那是法文书。
+Here is a Chinese restaurant, not an English restaurant, and also not a Japanese restaurant.
+这儿是中国饭馆儿，不是英国饭馆儿，也不是日本饭馆儿。
+This is Miss. Xie, that is Mr. Xie, they are both from Shanghai.
+这是谢小姐，那是谢先生，他们都是上海人。
+I like to drink wine, don't like to drink tea.
+我喜欢喝酒，不喜欢喝茶。
+Please may I ask, XiaoWang, do you have wine here? I am hot.
+请问，小王，你这儿有酒吗？我想
+I like Japanese, but because I want to goto China, I want to study Chinese at university, not study Japanese.
+我喜欢日文，可是因为我要去中国，所以我要在大学学中文，不学日文。
 """
 
 
