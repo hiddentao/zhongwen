@@ -330,9 +330,9 @@ Mr. Xie likes to eat French food, he plans to to learn to cook French food, but 
 谢先生喜欢吃法国饭，也想学做法国饭，可是他没有老师。
 I want to goto England, I don't want to goto America, I don't like America.
 我要去英国，我不要去美国，我不喜欢美国。
-At what hour on Monday evening does your brother goto study Chinese?
+At what time on Monday evening does your brother goto study Chinese?
 你哥哥星期一晚上几点去学中文？
-At what hour tomorrow do you goto London? You will be in London on what day?
+At what time tomorrow do you goto London? You will be in London for how many days?
 你明天几点去伦敦？你会在伦敦几天？
 I like to learn both Japanese and Chinese.
 我既喜欢学日文，也喜欢学中文。
@@ -346,7 +346,7 @@ When will you goto Beijing?
 你什么时候去北京？
 Where is he from?
 他是哪儿人？
-At what hour is he meeting Wang Shengguo?
+At what time is he meeting Wang Shengguo?
 他几点见王生国？
 What does he do in the university?
 他在大学做什么？
@@ -398,7 +398,7 @@ Where are you(plural) drinking tea today afternoon?
 今天下午你们在哪儿喝茶？
 Is your brother reading books in the library every day in the morning?
 你弟弟天天上午都在图书馆看书吗？
-At what hour is Miss. Xie going to America on Wednesday?
+At what time does Miss. Xie going to America on Wednesday?
 谢小姐星期三几点去美国？
 You are in America in September, and then where are you?
 我九月在美国，那时候你在哪儿？
@@ -406,7 +406,7 @@ You(plural) want to goto Beijing tomorrow.
 我们明天要去北京。
 What is your younger sister doing all of tomorrow morning?
 你妹妹明天上午都做什么？
-At what hour today evening is Mr. Wang meeting Mr. Xie in the restaurant?
+At what time today evening is Mr. Wang meeting Mr. Xie in the restaurant?
 王先生今天晚上几点在饭馆儿见谢先生？
 Miss. Wang plans to meet you(polite) at noon on Thursday, do you want to meet her?
 王小姐星期四中午想见您，您要见她吗？
@@ -421,7 +421,7 @@ This is Miss. Xie, that is Mr. Xie, they are both from Shanghai.
 I like to drink wine, don't like to drink tea.
 我喜欢喝酒，不喜欢喝茶。
 Please may I ask, XiaoWang, do you have wine here? I am hot.
-请问，小王，你这儿有酒吗？我想
+请问，小王，你这儿有酒吗？我热。
 I like Japanese, but because I want to goto China, I want to study Chinese at university, not study Japanese.
 我喜欢日文，可是因为我要去中国，所以我要在大学学中文，不学日文。
 """
