@@ -402,7 +402,7 @@ At what time does Miss. Xie going to America on Wednesday?
 谢小姐星期三几点去美国？
 You are in America in September, and then where are you?
 我九月在美国，那时候你在哪儿？
-You(plural) want to goto Beijing tomorrow.
+We want to goto Beijing tomorrow.
 我们明天要去北京。
 What is your younger sister doing all of tomorrow morning?
 你妹妹明天上午都做什么？
