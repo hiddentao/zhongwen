@@ -374,7 +374,7 @@ We are eating supper at 7pm, are you ok with that?
 我们七点吃晚饭，你看好吗？
 Good, we meet at 7pm, goodbye!
 好，我们七点见，再见！
-Please may I ask Mr. Wang, where are we eating supper?
+Please may I ask Mr. Wang, where are we going to eat supper?
 请问王先生，我们去哪儿吃晚饭？
 We are going to the Shanghai restaurant in the evening to eat dinner.
 我们晚上去上海饭馆儿吃晚饭。
