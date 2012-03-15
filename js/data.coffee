@@ -294,9 +294,9 @@ We meet at 11:30am in the morning on Sunday, not at 11:45am!
 
 
 
-exports.Unit5 = """His elder brother is fond of drinking Chinese wine.
+exports.Unit5 = """His elder brother like to drink Chinese wine.
 他哥哥5喜欢喝中国酒
-His elder brother plans to to drink Chinese wine.
+His elder brother wants to drink Chinese wine.
 他哥哥5想喝中国酒
 Her dad would like to drink good English tea today afternoon.
 她爸爸今天下午想喝好英国茶
@@ -368,7 +368,7 @@ Hello, Mr. Wang, on which day do you(polite) goto Japan?
 你好，王先生，您哪天去日本？
 Hello, Miss. Xie, I goto Japan tomorrow.
 你好，谢小姐，我明天去日本。
-Please may I ask Mr. Wang, at what time are we eating supper?
+Please may I ask Mr. Wang, when are we eating supper?
 请问王先生，我们什么时候吃晚饭？
 We are eating supper at 7pm, are you ok with that?
 我们七点吃晚饭，你看好吗？
@@ -396,9 +396,9 @@ They are going to Japan in 2010.
 他们二零一零年去日本
 Where are you(plural) drinking tea today afternoon?
 今天下午你们在哪儿喝茶？
-Is your brother reading books in the library every day in the morning?
+Does your younger brother spend all morning every day reading books in the library?
 你弟弟天天上午都在图书馆看书吗？
-At what time does Miss. Xie going to America on Wednesday?
+At what time is Miss. Xie going to America on Wednesday?
 谢小姐星期三几点去美国？
 You are in America in September, and then where are you?
 我九月在美国，那时候你在哪儿？
