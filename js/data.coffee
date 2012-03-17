@@ -267,7 +267,7 @@ Today, tomorrow we are all in the library.
 We meet at 3pm in the afternoon on the 6th of April, good?
 我们四月六号下午三点见，好吗？
 Tomorrow, in both the morning and the afternoon I am in the university, where are you?
-我明天上，下午都在图书馆，你在哪儿？
+我明天上，下午都在大学，你在哪儿？
 Are we or aren’t we meeting at 7pm in the evening on Wednesday?
 我们是不是星期三晚上七点见？
 Today early morning I am in the library, at noon meet Miss. Wang, and in the afternoon am studying Chinese.

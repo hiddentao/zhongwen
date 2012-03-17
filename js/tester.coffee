@@ -1,11 +1,32 @@
+$ = jQuery
 Spine = require("spine")
 SentenceBuilders = require("sentences")
 dict = require("dict")
 
+PINYIN_CHARS = "abcdefghijklmnopqrstuvwxyz!?.,;"
+
+
+# Solution from http://stackoverflow.com/a/3651232
+#
+# Note that this won't work on Android due to bug: http://code.google.com/p/android/issues/detail?id=15245
+#
+$.fn.setCursorPosition = (pos) ->
+  @.each (index, elem) ->
+    if (elem.setSelectionRange)
+      elem.setSelectionRange(pos, pos)
+    else if (elem.createTextRange)
+      range = elem.createTextRange()
+      range.collapse(true)
+      range.moveEnd('character', pos)
+      range.moveStart('character', pos)
+      range.select()
+  @
+
 
 class module.exports extends Spine.Controller
 
-    current_sentence: null
+    currentSentence: null
+    pollLoop: null
 
     el: $("#page-tester")
 
@@ -15,47 +36,58 @@ class module.exports extends Spine.Controller
         "#help" : "help"
         "#progress" : "progress"
         "form textarea" : "zhongwen_input"
-        "form input" : "pinyin_input"
         "#suggestions" : "suggestions"
+
+    events:
+        "keydown textarea" : "input_keyDown"
+        "keyup textarea" : "input_keyUp"
+        "focus textarea" : "input_focus"
+        "blur textarea" : "input_blur"
+        "vclick #nav button" : "nextBtn_click"
+        "vclick #help button" : "helpBtn_click"
+        "vclick #skipbtn" : "skipBtn_click"
 
     constructor: ->
         super
 
-        # pinyin input
-        @pinyin_input.bind 'keydown', (e) =>
-            code = parseInt(e.which)
-            # numbers
-            if 49 <= code and 57 >= code
-                e.preventDefault()
-                @_selectSuggestion(code - 49)
+        # TODO: if running on android then provide alternative pinyin input box
 
-        @pinyin_input.bind 'keyup', =>
-            @_updateSuggestions dict.lookup(@pinyin_input.val())
 
-        @zhongwen_input.bind 'keyup', @_updateProgress
-        # on phones special keyboard input methods sometimes don't trigger events so let's setup a loop
-        pollLoop = null
-        @zhongwen_input.bind 'focus', =>
-            pollLoop = setInterval @_updateProgress, 1000
-        @zhongwen_input.bind 'blur', =>
-            clearInterval(pollLoop) if pollLoop
-            pollLoop = null
-
-        # skip button
-        $("#skipbtn", @el).bind 'vclick', (e) =>
+    input_keyDown: (e) =>
+        code = parseInt(e.which)
+        # it's a number
+        if 49 <= code and 57 >= code
+            # select character suggestion
             e.preventDefault()
-            @_showNextSentence()
-
-        # next button
-        $("button", @nav_next).bind 'vclick', (e) =>
+            @_selectSuggestion(code - 49)
+        # else it's a space
+        else if 32 is code
+            # select first pinyin suggestion
             e.preventDefault()
-            @_showNextSentence()
+            @_selectSuggestion(0)
 
-        # help button
-        $("button", @help).bind 'vclick', (e) =>
-            e.preventDefault()
-            @_showHint()
+    input_keyUp: (e) =>
+        # if the input is not a chinese char then update pinyin suggestions
+        @_updateSuggestions() if 127 >= e.which
 
+    input_focus: =>
+        @pollLoop = setInterval @_updateProgress, 1000
+
+    input_blur: =>
+        clearInterval(pollLoop) if @pollLooppollLoop
+        @pollLoop = null
+
+    skipBtn_click: (e) =>
+        e.preventDefault()
+        @_showNextSentence()
+
+    nextBtn_click: (e) =>
+        e.preventDefault()
+        @_showNextSentence()
+
+    helpBtn_click: (e) =>
+        e.preventDefault()
+        @_showHint()
 
 
     ###
@@ -113,7 +145,7 @@ class module.exports extends Spine.Controller
     Give the user a hint.
     ###
     _showHint: =>
-        incorrect = @current_sentence.cn.matches(@zhongwen_input.val())
+        incorrect = @currentSentence.cn.matches(@zhongwen_input.val())
         if true isnt incorrect and 0 < incorrect.chars.length
             # Before doing anything else, force-end the poll loop which auto-updates the progress msg
             @zhongwen_input.trigger 'blur'
@@ -130,9 +162,14 @@ class module.exports extends Spine.Controller
         @nav_next.hide()
 
         actual = @zhongwen_input.val()
+
+        # remove pinyin from it
+        pinyin = @_getPinyinSoFar()
+        actual = actual.replace pinyin, ''
+
         return @progress.hide() if 0 >= actual.length
 
-        incorrect = @current_sentence.cn.matches(actual)
+        incorrect = @currentSentence.cn.matches(actual)
 
         if incorrect is true
             @progress.attr("class", "good").text("you did it!")
@@ -148,6 +185,20 @@ class module.exports extends Spine.Controller
 
 
     ###
+    Get pinyin which has been input so far
+    ###
+    _getPinyinSoFar: =>
+        val = @zhongwen_input.val()
+        pinyin = ""
+        i = -1
+        while val.length > ++i
+            c = val.charAt(i)
+            pinyin += c if 0 <= PINYIN_CHARS.indexOf(c.toLowerCase())
+
+        pinyin
+
+
+    ###
     Select given pinyin suggestion if possible
     ###
     _selectSuggestion: (char) =>
@@ -156,16 +207,27 @@ class module.exports extends Spine.Controller
             char = $("td:eq(#{char}) span.char", @suggestions)
             return if 0 is char.size()
             char = char.text()
-        @_insertAtCaret @zhongwen_input.get(0), char
-        @_updateProgress()
+
+
+        # replace pinyin with char
+        newChars =  @zhongwen_input.val().replace(@_getPinyinSoFar(), char)
+
+       # update input
+        @zhongwen_input
+            .val("")        # unless we clear it first Android keeps re-inserting the previously typed string
+            .val(newChars)
+            .setCursorPosition(newChars.length)
+
         @suggestions.hide()
-        @pinyin_input.val("").focus()
+        @_updateProgress()
 
 
     ###
-    Update pinyin suggestions view with given chars.
+    Update pinyin suggestions view.
     ###
-    _updateSuggestions: (chars) =>
+    _updateSuggestions: () =>
+        chars = dict.lookup(@_getPinyinSoFar())
+
         if 0 < chars.length
             $("td", @suggestions).remove()
             num = 0
@@ -176,12 +238,12 @@ class module.exports extends Spine.Controller
                 $(e).bind 'vclick', => @_selectSuggestion $(".char", e).text()
 
 
-            pinyin_label_offset = $("label[for=pinyin]", @el).offset()
+            label_offset = $("#zhongwen_label", @el).offset()
             @suggestions
                 .css
                     position: "absolute"
-                    top: pinyin_label_offset.top  + "px"
-                    left: pinyin_label_offset.left + "px"
+                    top: label_offset.top  + "px"
+                    left: label_offset.left + "px"
                 .show()
         else
             @suggestions.hide()
@@ -197,12 +259,11 @@ class module.exports extends Spine.Controller
         @help.show()
         @sentence.text("")
         @zhongwen_input.val("")
-        @pinyin_input.val("")
         @suggestions.hide();
 
         n = parseInt(Math.random() * @active_builders.length)
-        @current_sentence = @active_builders[n].next()
-        @sentence.text(@current_sentence.en)
+        @currentSentence = @active_builders[n].next()
+        @sentence.text(@currentSentence.en)
 
 
 
@@ -211,25 +272,3 @@ class module.exports extends Spine.Controller
         str.charAt(0).toUpperCase() + str.slice(1)
 
 
-    ###
-    Insert text at caret position in given element.
-    Take from: http://stackoverflow.com/a/4384173
-    ###
-    _insertAtCaret: (element, text) ->
-        if document.selection
-            element.focus()
-            sel = document.selection.createRange()
-            sel.text = text
-            element.focus()
-        else if element.selectionStart or element.selectionStart is 0
-            startPos = element.selectionStart
-            endPos = element.selectionEnd
-            scrollTop = element.scrollTop
-            element.value = element.value.substring(0, startPos) + text + element.value.substring(endPos, element.value.length)
-            element.focus()
-            element.selectionStart = startPos + text.length
-            element.selectionEnd = startPos + text.length
-            element.scrollTop = scrollTop
-        else
-            element.value += text
-            element.focus()
