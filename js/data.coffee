@@ -137,7 +137,7 @@ Who is Mr. Wang meeting today at 12.15pm noon?
 Miss. Ying is meeting us on Sunday.
 英小姐星期天见我们
 I am not in London in March, or in April.
-我三月不在伦敦，也四月不在
+我三月不在伦敦，四月也不在。
 We are in Shanghai in May.
 我们五月在上海
 I treat you to eat English food tomorrow evening (ba)!
