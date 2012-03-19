@@ -25,7 +25,7 @@ exports.testPinyinLookup = (test) ->
     test.done()
 
 
-exports.sentence = {
+exports.sentence =
 
     testEmpty: (test) ->
         test.expect(2)
@@ -96,7 +96,3 @@ exports.sentence = {
         assertObjectEqual s.matches("先生星期三几点去美国老？"), {num:1, chars:[]}, "too much with ?"
 
         test.done()
-
-}
-
-
