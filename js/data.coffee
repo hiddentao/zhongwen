@@ -137,7 +137,7 @@ Who is Mr. Wang meeting today at 12.15pm noon?
 Miss. Ying is meeting us on Sunday.
 英小姐星期天见我们
 I am not in London in March, or in April.
-我三月不在伦敦，也四月不在
+我三月不在伦敦，四月也不在。
 We are in Shanghai in May.
 我们五月在上海
 I treat you to eat English food tomorrow evening (ba)!
@@ -267,7 +267,7 @@ Today, tomorrow we are all in the library.
 We meet at 3pm in the afternoon on the 6th of April, good?
 我们四月六号下午三点见，好吗？
 Tomorrow, in both the morning and the afternoon I am in the university, where are you?
-我明天上，下午都在图书馆，你在哪儿？
+我明天上，下午都在大学，你在哪儿？
 Are we or aren’t we meeting at 7pm in the evening on Wednesday?
 我们是不是星期三晚上七点见？
 Today early morning I am in the library, at noon meet Miss. Wang, and in the afternoon am studying Chinese.
@@ -294,9 +294,9 @@ We meet at 11:30am in the morning on Sunday, not at 11:45am!
 
 
 
-exports.Unit5 = """His elder brother is fond of drinking Chinese wine.
+exports.Unit5 = """His elder brother like to drink Chinese wine.
 他哥哥5喜欢喝中国酒
-His elder brother plans to to drink Chinese wine.
+His elder brother wants to drink Chinese wine.
 他哥哥5想喝中国酒
 Her dad would like to drink good English tea today afternoon.
 她爸爸今天下午想喝好英国茶
@@ -330,9 +330,9 @@ Mr. Xie likes to eat French food, he plans to to learn to cook French food, but 
 谢先生喜欢吃法国饭，也想学做法国饭，可是他没有老师。
 I want to goto England, I don't want to goto America, I don't like America.
 我要去英国，我不要去美国，我不喜欢美国。
-At what hour on Monday evening does your brother goto study Chinese?
+At what time on Monday evening does your brother goto study Chinese?
 你哥哥星期一晚上几点去学中文？
-At what hour tomorrow do you goto London? You will be in London on what day?
+At what time tomorrow do you goto London? You will be in London for how many days?
 你明天几点去伦敦？你会在伦敦几天？
 I like to learn both Japanese and Chinese.
 我既喜欢学日文，也喜欢学中文。
@@ -346,7 +346,7 @@ When will you goto Beijing?
 你什么时候去北京？
 Where is he from?
 他是哪儿人？
-At what hour is he meeting Wang Shengguo?
+At what time is he meeting Wang Shengguo?
 他几点见王生国？
 What does he do in the university?
 他在大学做什么？
@@ -368,13 +368,13 @@ Hello, Mr. Wang, on which day do you(polite) goto Japan?
 你好，王先生，您哪天去日本？
 Hello, Miss. Xie, I goto Japan tomorrow.
 你好，谢小姐，我明天去日本。
-Please may I ask Mr. Wang, at what time are we eating supper?
+Please may I ask Mr. Wang, when are we eating supper?
 请问王先生，我们什么时候吃晚饭？
 We are eating supper at 7pm, are you ok with that?
 我们七点吃晚饭，你看好吗？
 Good, we meet at 7pm, goodbye!
 好，我们七点见，再见！
-Please may I ask Mr. Wang, where are we eating supper?
+Please may I ask Mr. Wang, where are we going to eat supper?
 请问王先生，我们去哪儿吃晚饭？
 We are going to the Shanghai restaurant in the evening to eat dinner.
 我们晚上去上海饭馆儿吃晚饭。
@@ -396,17 +396,17 @@ They are going to Japan in 2010.
 他们二零一零年去日本
 Where are you(plural) drinking tea today afternoon?
 今天下午你们在哪儿喝茶？
-Is your brother reading books in the library every day in the morning?
+Does your younger brother spend all morning every day reading books in the library?
 你弟弟天天上午都在图书馆看书吗？
-At what hour is Miss. Xie going to America on Wednesday?
+At what time is Miss. Xie going to America on Wednesday?
 谢小姐星期三几点去美国？
 You are in America in September, and then where are you?
 我九月在美国，那时候你在哪儿？
-You(plural) want to goto Beijing tomorrow.
+We want to goto Beijing tomorrow.
 我们明天要去北京。
 What is your younger sister doing all of tomorrow morning?
 你妹妹明天上午都做什么？
-At what hour today evening is Mr. Wang meeting Mr. Xie in the restaurant?
+At what time today evening is Mr. Wang meeting Mr. Xie in the restaurant?
 王先生今天晚上几点在饭馆儿见谢先生？
 Miss. Wang plans to meet you(polite) at noon on Thursday, do you want to meet her?
 王小姐星期四中午想见您，您要见她吗？
@@ -421,7 +421,7 @@ This is Miss. Xie, that is Mr. Xie, they are both from Shanghai.
 I like to drink wine, don't like to drink tea.
 我喜欢喝酒，不喜欢喝茶。
 Please may I ask, XiaoWang, do you have wine here? I am hot.
-请问，小王，你这儿有酒吗？我想
+请问，小王，你这儿有酒吗？我热。
 I like Japanese, but because I want to goto China, I want to study Chinese at university, not study Japanese.
 我喜欢日文，可是因为我要去中国，所以我要在大学学中文，不学日文。
 """

@@ -21,9 +21,9 @@ keyboard.
 
 Tested on desktop (Chrome, Firefox) and mobile (iOS, Android).
 
+Blog post: [link](http://www.hiddentao.com/archives/2012/03/14/zhongwen-co-uk-a-simple-jquery-mobile-web-app/)
 
 ## License ##
 
 GNU Affero GPL v3 (see LICENSE.txt).
-
 
