@@ -44,14 +44,14 @@ class Unit_5 extends SentenceBuilder
     constructor: ->
         super data.Unit5
     shortDesc: ->
-        return "Units 5"
+        return "Unit 5"
 
 
 class Unit_6 extends SentenceBuilder
     constructor: ->
         super data.Unit6
     shortDesc: ->
-        return "Units 6"
+        return "Unit 6"
 
 
 module.exports =
