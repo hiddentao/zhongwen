@@ -428,3 +428,26 @@ I like Japanese, but because I want to goto China, I want to study Chinese at un
 
 
 
+exports.Unit6 = """His younger brother is working in the London University's office
+他弟弟在伦敦大学的办公室工作
+That Miss Lin who does research in the university is very lovely
+哪个在大学做研究工作的林小姐很可爱
+Teacher Wang, our school's Chinese language class students all really respect you(polite)
+王老师我们学校中文班的学生都很尊重您
+Fellow students are studying a mathematics lesson on school's 302 classroom on Monday afternoon.
+同学们星期一下午在学校的三零二教室上数学课
+Our mathematics teacher is going to Beijing, China in September this year to teach mathematics
+我们的数学老师今年九月去中国的北京大学教数学
+Last week's homework, this week's home work, both I didn't do
+上个星期的作业这个星期的作业我都没做
+Is this the book you want to borrow today?
+这是你今天要还的书吗？
+The food in this canteen is very good to eat
+这个餐厅的饭很好吃
+Please may I ask, where is the school office?
+请问学校的办公室在哪儿？
+Please may I ask, when can books be returned to the school library?
+请问学校的图书馆什么时候借书？
+My parents are both middle school teachers
+我父母都是中学的老师
+"""
