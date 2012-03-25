@@ -14,7 +14,7 @@ $(document).bind 'pageinit', (event) ->
         initialised = true
 
         # add footer to every page
-        $(':jqmData(role="page")').append($('footer').detach())
+        $(':jqmData(role="footer")').append($('.footer').detach())
 
         # add tester choices
         tester = new Tester(el: $("#page-tester"))
@@ -23,7 +23,7 @@ $(document).bind 'pageinit', (event) ->
             choiceGroup = $("<div class=\"choice\" data-role=\"controlgroup\">")
             for item in group
                 choiceGroup.append("<a href=\"#tester\" data-role=\"button\" data-category=\"#{item.category}\">#{item.label}</a>")
-            $("#page-home .content").append(choiceGroup)
+            $("#page-home .choices").append(choiceGroup)
 
         $("#page-home .content").trigger( "create" )
 

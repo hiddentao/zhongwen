@@ -26,7 +26,11 @@
             <h2>中文</h2>
             <p>你好! This app is for practising Mandarin writing and translation, drawing on the <a href="http://www.meridiandao.co.uk/">MECS study program</a> syllabus.</p>
             <p>Choose your level:</p>
+            <div class="choices"></div>
+            <p><a href="#help">Help</a></p>
         </section>
+        <footer data-role="footer" data-position="fixed">
+        </footer>
     </div>
 
     <div id="page-tester" data-url="tester" data-title="Sentences" data-role="page">
@@ -49,7 +53,9 @@
                 <textarea id="zhongwen" name="zhongwen" rows="1"></textarea>
                 <div id="suggestions"><table cellpadding='0' cellspacing='0'><tr></tr></table></div>
             </form>
+            <p><a href="#help">Help</a></p>
         </section>
+        <footer data-role="footer" data-position="fixed"></footer>
     </div>
 
     <div id="page-help" data-url="help" data-title="Help" data-role="page">
@@ -70,24 +76,21 @@
                     >blog post</a> and get the code from <a href="https://github.com/hiddentao/zhongwen/">github</a>.</p>
             <p>Developed by <a href="http://twitter.com/hiddentao">HiddenTao</a>.</p>
         </section>
+        <footer data-role="footer" data-position="fixed"></footer>
     </div>
 
-    <footer>
-        <p><a href="#help">Help</a></p>
-        <p>
-            <script type="text/javascript"><!--
-            google_ad_client = "ca-pub-5348747324017294";
-            /* Mobile web app ad */
-            google_ad_slot = "8438568425";
-            google_ad_width = 320;
-            google_ad_height = 50;
-            //-->
-            </script>
-            <script type="text/javascript"
-            src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
-            </script>
-        </p>
-    </footer>
+    <div class="footer">
+        <script type="text/javascript"><!--
+        google_ad_client = "ca-pub-5348747324017294";
+        /* Mobile web app ad */
+        google_ad_slot = "8438568425";
+        google_ad_width = 320;
+        google_ad_height = 50;
+        //-->
+        </script>
+        <script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+        </script>
+    </div>
 
 </body>
 
