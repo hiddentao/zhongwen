@@ -1,3 +1,7 @@
+_isArray = (value) ->
+    return Object.prototype.toString.call(value) is '[object Array]'
+
+
 ###
 Chinese (simplified) character dictionary
 ###
@@ -83,7 +87,6 @@ Dict = exports.Dict =
     "今" : "jīn"
     "天" : "tiān"
     "昨" : "zuó"
-    "明" : "míng"
     "早" : "zǎo"
     "午" : "wǔ"
     "下" : "xià"
@@ -218,7 +221,7 @@ changeTone = (pinyin, newTone) ->
 # construct pinyin -> character mappings
 ReverseDict = {}
 for own char, pinyin of Dict
-    pinyin = [pinyin] if not Array.isArray(pinyin)
+    pinyin = [pinyin] if not _isArray(pinyin)
     for p in pinyin
         p = changeTone(p, 5)
         if not ReverseDict[p]?
@@ -258,7 +261,7 @@ class module.exports.Sentence
                 console.log [chars, i]
                 throw "Unrecognized char: " + char
             pinyin = Dict[char]
-            pinyin = pinyin[0] if Array.isArray(pinyin)
+            pinyin = pinyin[0] if _isArray(pinyin)
             if chars.length-1 > i
                 # changing the tone of the character？
                 toneModifier = parseInt(chars[i+1])

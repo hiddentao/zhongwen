@@ -1,0 +1,46 @@
+import org.apache.tools.ant.filters.ReplaceTokens
+
+weberExec = null
+
+
+task build_web_app << {
+    println "Building web assets"
+    project.exec{
+        executable 'weber'
+        args 'build'
+    }
+
+    println "Copying web assets"
+    project.copy {
+        from 'public'
+        into 'gh-pages'
+    }
+}
+
+
+task build_mobile_app (dependsOn: build_web_app) << {
+    println "Copying mobile web assets"
+    project.copy {
+        from 'public'
+        into 'android/assets/www'
+        exclude 'app.js'
+        exclude 'app.css'
+    }
+
+    println "Setup Android specific stuff in index.html"
+    [
+        '</head>' : '<script type="text/javascript" charset="utf-8" src="cordova-1.5.0.js"></script></head>',
+        'app.require' : 'app_android.require'
+    ].each {
+        ant.replace(
+            file: 'android/assets/www/index.html',
+            token: it.key,
+            value: it.value
+        )
+    }
+}
+
+task build (dependsOn: build_mobile_app) {}
+
+
+defaultTasks 'build'

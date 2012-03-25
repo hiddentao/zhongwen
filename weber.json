@@ -5,7 +5,17 @@
 	    "build": "./gh-pages/app.css",
         "input": [
             "./css/reset.css",
-            "./css/main.styl"
+            "./css/main.styl",
+            "./css/jquery.mobile-1.1.0-rc.1.min.css"
+        ]
+    },
+
+    "/app_android.css" : {
+	    "build": "./android/assets/www/app.css",
+        "input": [
+            "./css/reset.css",
+            "./css/main.styl",
+            "./css/jquery.mobile-1.1.0-rc.1.min.css"
         ]
     },
 
@@ -13,14 +23,31 @@
         "build" : "./gh-pages/app.js",
         "input" : {
             "dependency": [
-                "es5-shimify",
                 "spine"
             ],
             "lib" : [
+                "./lib/es5-shim.js",
+                "./lib/jquery-1.7.1.min.js",
                 "./lib/css3-mediaqueries.js",
                 "./lib/html5shim.js"
             ],
-            "module": [ "./js" ]
+            "module": [ "./coffee" ]
+        }
+    },
+
+
+    "/app_android.js" : {
+        "build" : "./android/assets/www/app.js",
+        "input" : {
+            "dependency": [
+                "spine"
+            ],
+            "lib" : [
+                "./lib/es5-shim.js",
+                "./lib/jquery-1.7.1.min.js"
+            ],
+            "module": [ "./coffee" ]
         }
     }
+
 }
