@@ -450,4 +450,12 @@ Please may I ask, when can books be returned to the school library?
 请问学校的图书馆什么时候借书？
 My parents are both middle school teachers
 我父母都是中学的老师
+What did you research last year?
+你去年研究的是什么？
+When I was in Beijing last year I went to the library every day.
+去年我在北京的时候，我天天去图书馆。
+Today's homework is a lot.
+今天的作业不多。
+My Maths is good, your English is good, I teach you Maths, you teach me English, good or not?
+我数学好，你英文好，我教你数学，你教我英文，好不好？
 """
