@@ -3,14 +3,17 @@ import org.apache.tools.ant.filters.ReplaceTokens
 weberExec = null
 
 
-task build_web_app << {
-    println "Building web assets"
+task build_assets << {
+    println "Building assets"
     project.exec{
         executable 'weber'
         args 'build'
     }
+}
 
-    println "Copying web assets"
+
+task build_web_app (dependsOn: build_assets) << {
+    println "Copying web app assets"
     project.copy {
         from 'public'
         into 'gh-pages'
@@ -18,8 +21,8 @@ task build_web_app << {
 }
 
 
-task build_mobile_app (dependsOn: build_web_app) << {
-    println "Copying mobile web assets"
+task build_mobile_app (dependsOn: build_assets) << {
+    println "Copying mobile app assets"
     project.copy {
         from 'public'
         into 'android/assets/www'
@@ -29,7 +32,7 @@ task build_mobile_app (dependsOn: build_web_app) << {
 
     println "Setup Android specific stuff in index.html"
     [
-        '</head>' : '<script type="text/javascript" charset="utf-8" src="cordova-1.5.0.js"></script></head>',
+        '<!-- cordova placeholder -->' : '<script type="text/javascript" charset="utf-8" src="cordova-1.5.0.js"></script>',
         'app.require' : 'app_android.require'
     ].each {
         ant.replace(
@@ -40,7 +43,11 @@ task build_mobile_app (dependsOn: build_web_app) << {
     }
 }
 
-task build (dependsOn: build_mobile_app) {}
+task build << {
+    tasks.build_assets.execute()
+    tasks.build_web_app.execute()
+    tasks.build_mobile_app.execute()
+}
 
 
 defaultTasks 'build'

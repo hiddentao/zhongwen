@@ -6,6 +6,7 @@ $.extend $.mobile,
     ajaxEnabled: false
     hashListeningEnabled: true
 
+
 # initialization stuff
 initialised = false
 $(document).bind 'pageinit', (event) ->
@@ -16,7 +17,7 @@ $(document).bind 'pageinit', (event) ->
         $(':jqmData(role="page")').append($('footer').detach())
 
         # add tester choices
-        tester = new Tester()
+        tester = new Tester(el: $("#page-tester"))
         choices = tester.getChoices()
         for group in choices
             choiceGroup = $("<div class=\"choice\" data-role=\"controlgroup\">")

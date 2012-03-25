@@ -28,7 +28,7 @@ class module.exports extends Spine.Controller
     currentSentence: null
     pollLoop: null
 
-    el: $("#page-tester")
+    el: null
 
     elements:
         "#sentence" : "sentence"
@@ -39,19 +39,14 @@ class module.exports extends Spine.Controller
         "#suggestions" : "suggestions"
 
     events:
+        "swipeleft #sentence" : "nextBtn_click"
         "keydown textarea" : "input_keyDown"
         "keyup textarea" : "input_keyUp"
         "focus textarea" : "input_focus"
         "blur textarea" : "input_blur"
         "vclick #nav button" : "nextBtn_click"
-        "vclick #help button" : "helpBtn_click"
+        "vclick #help a" : "helpBtn_click"
         "vclick #skipbtn" : "skipBtn_click"
-
-    constructor: ->
-        super
-
-        # TODO: if running on android then provide alternative pinyin input box
-
 
     input_keyDown: (e) =>
         code = parseInt(e.which)
@@ -147,12 +142,10 @@ class module.exports extends Spine.Controller
     _showHint: =>
         incorrect = @currentSentence.cn.matches(@zhongwen_input.val())
         if true isnt incorrect and 0 < incorrect.chars.length
-            # Before doing anything else, force-end the poll loop which auto-updates the progress msg
-            @zhongwen_input.trigger 'blur'
             # show it's pinyin as a hint
             pinyin = dict.Dict[incorrect.chars[0]]
             pinyin = pinyin[0] if Array.isArray(pinyin)
-            @progress.attr("class", "hint").html("hint: <em>#{pinyin}</em>").show()
+            alert("hint: #{pinyin}")
 
 
     ###

@@ -12,13 +12,19 @@
 
     <link rel="stylesheet" href="app.css" media="screen, projection" />
 
-<script type="text/javascript" charset="utf-8" src="cordova-1.5.0.js"></script></head>
+    <script type="text/javascript" charset="utf-8" src="cordova-1.5.0.js"></script>
+
+    <script type="text/javascript" src="app.js"></script>
+    <script type="text/javascript">app_android.require('bootstrap');</script>
+    <script type="text/javascript" src="jquery.mobile-1.1.0-rc.1.min.js"></script>
+
+</head>
 
 <body>
     <div id="page-home" data-url="home" data-title="中文!" data-role="page">
         <section class="content">
             <h2>中文</h2>
-            <p>你好! This website is for practising Mandarin writing and translation, drawing on the <a href="http://www.meridiandao.co.uk/">MECS study program</a> syllabus.</p>
+            <p>你好! This app is for practising Mandarin writing and translation, drawing on the <a href="http://www.meridiandao.co.uk/">MECS study program</a> syllabus.</p>
             <p>Choose your level:</p>
         </section>
     </div>
@@ -38,7 +44,7 @@
                     <button data-icon="arrow-r" data-iconpos="right" data-mini="true">Next</button>
                 </div>
                 <div id="help">
-                    <button data-icon="info" data-iconpos="notext" data-mini="true">Show hint</button>
+                    <a data-rel="popup" href="#hintPopup" data-icon="info" data-iconpos="notext" data-mini="true" data-role="button" data-inline="true" data-theme="c">Show hint</a>
                 </div>
                 <textarea id="zhongwen" name="zhongwen" rows="1"></textarea>
                 <div id="suggestions"><table cellpadding='0' cellspacing='0'><tr></tr></table></div>
@@ -46,14 +52,29 @@
         </section>
     </div>
 
-    <footer>
-        <p>By <a href="http://twitter.com/hiddentao">Ramesh Nair</a> | 
-		<a href="http://www.hiddentao.com/archives/2012/03/14/zhongwen-co-uk-a-simple-jquery-mobile-web-app/">about</a></p>
-    </footer>
+    <div id="page-help" data-url="help" data-title="Help" data-role="page">
+        <header data-role="header" data-position="inline">
+            <a data-rel="back" data-icon="back" data-mini="true" data-iconpos="notext">Home</a>
+            <h1>About</h1>
+        </header>
+        <section class="content">
+            <p>
+                This app is primary intended for students of the <a href="http://www.meridiandao.co.uk/">MECS study program</a>, though anyone can use it to practise
+                their Mandarin.
+            </p>
+            <p>
+                You can enter characters using Pinyin or directly if you have a Chinese keyboard/input method enabled. If you get stuck
+                you can use the small hint button above the input box to find out what the next character should be.
+            </p>
+            <p>Read the <a href="http://www.hiddentao.com/archives/2012/03/14/zhongwen-co-uk-a-simple-jquery-mobile-web-app/"
+                    >blog post</a> and get the code from <a href="https://github.com/hiddentao/zhongwen/">github</a>.</p>
+            <p>Developed by <a href="http://twitter.com/hiddentao">HiddenTao</a>.</p>
+        </section>
+    </div>
 
-    <script type="text/javascript" src="app.js"></script>
-    <script type="text/javascript">app_android.require('bootstrap');</script>
-    <script type="text/javascript" src="jquery.mobile-1.1.0-rc.1.min.js"></script>
+    <footer>
+        <p><a href="#help">Help</a></p>
+    </footer>
 
 </body>
 
