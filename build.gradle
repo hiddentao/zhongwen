@@ -3,7 +3,16 @@ import org.apache.tools.ant.filters.ReplaceTokens
 weberExec = null
 
 
-task build_assets << {
+
+task test << {
+    project.exec {
+        executable 'node'
+        args ('node_modules/nodeunit/bin/nodeunit', 'test')
+    }
+}
+
+
+task build_assets (dependsOn: test) << {
     println "Building assets"
     project.exec{
         executable 'weber'
@@ -44,6 +53,7 @@ task build_mobile_app (dependsOn: build_assets) << {
 }
 
 task build << {
+    tasks.test.execute()
     tasks.build_assets.execute()
     tasks.build_web_app.execute()
     tasks.build_mobile_app.execute()

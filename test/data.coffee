@@ -1,5 +1,5 @@
-dict = require '../js/dict'
-data = require '../js/data'
+dict = require '../coffee/dict'
+data = require '../coffee/data'
 
 
 testChars = (test, dataString) ->
@@ -17,3 +17,4 @@ testChars = (test, dataString) ->
 exports.valid_data =
     test_Units_1_to_4: (test) -> testChars test, data.Units1to4
     test_Unit_5: (test) -> testChars test, data.Unit5
+    test_Unit_6: (test) -> testChars test, data.Unit6

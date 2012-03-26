@@ -428,34 +428,121 @@ I like Japanese, but because I want to goto China, I want to study Chinese at un
 
 
 
-exports.Unit6 = """His younger brother is working in the London University's office
+exports.Unit6 = """
+His younger brother works in the London University office.
 他弟弟在伦敦大学的办公室工作
-That Miss Lin who does research in the university is very lovely
-哪个在大学做研究工作的林小姐很可爱
-Teacher Wang, our school's Chinese language class students all really respect you(polite)
-王老师我们学校中文班的学生都很尊重您
-Fellow students are studying a mathematics lesson on school's 302 classroom on Monday afternoon.
+That Miss. Lin who works as a researcher at the University is very lovely.
+那个在大学做研究工作的林小姐很可爱
+Teacher Wang, all the students of our school's Chinese class respect your very much.
+王老师，我们学校中文班的学生都很尊重您
+Fellow students are taking a Maths class in school room 302 on Monday afternoon.
 同学们星期一下午在学校的三零二教室上数学课
-Our mathematics teacher is going to Beijing, China in September this year to teach mathematics
-我们的数学老师今年九月去中国的北京大学教数学
-Last week's homework, this week's home work, both I didn't do
-上个星期的作业这个星期的作业我都没做
-Is this the book you want to borrow today?
+Our university maths teacher is teaching maths in the Beijing University of China in September this year.
+我们大学的数学老师今年九月去中国的北京大学教数学
+Last week's homework, this week's homework, both I haven't done.
+上个星期的作业，这个星期的作业，我都没做
+Do your students respect you?
+您的学生尊重您吗？
+Are their many trees at your(plural) school?
+你们学校的树多吗？
+Is your name called Liguo Ying?
+你的名字叫力国英吗？
+Are you(plural) taking English class in the evening?
+你们晚上上英文课吗？
+Do you want to return the maths book?
+你要还数学书吗？
+Do you(plural) want to return the book you borrowed?
+你们借的书要还吗？
+Do you want to do your maths homework?
+你想做你的数学作业吗？
+Is our school canteen good or not?
+我们学校的餐厅好不好？
+Do you study English diligently or not?
+你学习英文努力不努力？
+Did your parents go or not go to Beijing last month?
+你的父母下个月去不去北京？
+Do you know what place our classroom is at?
+你知道我们的教室在什么地方吗？
+Xiao Wang, do you have homework today or not?
+小王，今天有作业没有？
+Yesterday had English homework, today don't have, we're not taking English class today.
+昨天有英文的作业，今天没有，我们今天没上英文课
+XiaoWang, are both your parents from Beijing?
+小王，你的父母都是北京人吗？
+XiaoLin, Wang says you are a school researcher, is this so?
+小林，王说你是学校的研究生，是吗？
+What I study is the language of England, you?
+我学的是英国的文学。你呢？
+What I study is maths
+我学的是数学
+Wei, is this XiaoLin? when are we meeting tomorrow?
+喂，小林吗？我们明天什么时候见？
+Teacher Zhang, tomorrow I am very busy, good for us to meet on Sunday?
+张老师，我明天很忙，我们星期天见好吗？
+On Sunday morning I want to meet teacher Wang, good for us to meet in the afternoon?
+星期天的上午我要见王老师，我们下午见好吗？
+Good, we will meet in the school library at 2 o'clock on Sunday afternoon.
+好，我们星期天的下午两点在学校的图书馆见。
+Our class has 35, what about yours(plural) XiaoWang?
+我们班有三十五个，小王，你们班呢？
+Our maths classes are many more this term than last term.
+我们的数学课这个学期比上个学期多。
+Is this the book you want to return today?
 这是你今天要还的书吗？
-The food in this canteen is very good to eat
-这个餐厅的饭很好吃
+The food in this canteen is very good to eat.
+这个餐厅的饭很好吃。
+The trees here are very many, very comfortable.
+这儿的树很多，很舒服。
 Please may I ask, where is the school office?
-请问学校的办公室在哪儿？
+请问，学校的办公室在哪儿？
 Please may I ask, when can books be returned to the school library?
-请问学校的图书馆什么时候借书？
-My parents are both middle school teachers
-我父母都是中学的老师
-What did you research last year?
+请问，学校的图书馆什么时候借书？
+My parents are both teachers in Chinese studies.
+我父母都是中学的老师。
+What are you researching next year?
 你去年研究的是什么？
-When I was in Beijing last year I went to the library every day.
-去年我在北京的时候，我天天去图书馆。
-Today's homework is a lot.
+Last year I spent time in Beijing, went to the library everyday.
+去年我在北京的时候，天天去图书馆。
+Today's homework isn't a lot.
 今天的作业不多。
-My Maths is good, your English is good, I teach you Maths, you teach me English, good or not?
-我数学好，你英文好，我教你数学，你教我英文，好不好？
+My maths is good, your English is good, I'll teach you maths, you teach me English, good or not?
+我的数学好，你的英文好；我教你数学，你教我英文，好不好？
+His mum's cooking is very good to eat.
+他妈妈做的饭很好吃。
+In today's Chinese class there were very many characters to study.
+今天中文课学的字很多。
+The book my elder sister is returning is a Chinese language book.
+我姐姐借的书是中文的书。
+The place Miss. Lin knows of, Mr. Zhang also knows.
+林小姐知道的地方张先生也知道。
+The school canteen environment is very good, very comfortable.
+学校餐厅的环境很好，很舒服。
+This academic term's teachers are better than last term's teachers.
+这个学期的老师比上个学期的老师好。
+Is the book you want to return a library book?
+你要还的书是图书馆的书吗？
+The students who all like to study diligently.
+谁都喜欢学习努力的学生。
+Your younger brother is in Beijing this year, what about next year?
+你弟弟今年在北京，明年呢？
+The people you want to meet tomorrow, are they our school teachers?
+你明天要见的那个人，是我们学校的老师吗？
+All the people I respect are diligent working people.
+我尊重的人都是努力工作的人。
+XiaoXie's maths is better than his teacher's!
+小谢的数学比他的老师好！
+Are there many trees at your school or not?
+你们学校的树多不多？
+Your research class has how many research students?
+你们的研究生班有多少个研究生？
+Our office people, some are very busy, some are very not busy, I am one of the not busy people.
+我们办公室的人，忙的很忙，不忙的很不忙。我是不忙的人。
+Although our school library is not big, and there aren't many books, the environment is very good, therefore I go there every day.
+我们学校的图书馆虽然不大，书也不多，可是环境很好，所以我天天都去那儿。
+He is both my maths teacher and also my English teacher.
+他既是我的数学老师，也是我的英文老师。
+Wei, of which school are you a student? and what about your student ID?
+喂，你是哪个学校的学生？你的学生证呢？
+I not only have respect for our school teachers, I also respect our fellow class students.
+我不但尊重我们学校的老师，我也尊重我们班的同学
 """

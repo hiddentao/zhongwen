@@ -145,6 +145,8 @@ Dict = exports.Dict =
     "工" : "gōng"
     "作" : "zuò"
     "证" : "zhèng"
+    "环" : "huán"
+    "境" : "jìng"
     "树" : "shù"
     "借" : "jiè"
     "还" : "huán"
@@ -180,6 +182,7 @@ Dict = exports.Dict =
     "业" : "yè"
     "喂" : [ "wéi", "wèi" ]
     "林" : [ "lín" ]
+    "张" : "zhāng"
 
 
 
