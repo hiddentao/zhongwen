@@ -54,11 +54,19 @@ class Unit_6 extends SentenceBuilder
         return "Unit 6"
 
 
+class CommonPhrases extends SentenceBuilder
+  constructor: ->
+    super [data.Greetings, data.Directions, data.Hotel].join('\n')
+  shortDesc: ->
+    return "Common phrases"
+
+
 module.exports =
     Beginner:
         '0_1to4': new Units_1_To_4
         '1_5': new Unit_5
         '2_6': new Unit_6
+        '3_CP': new CommonPhrases
 
 
 

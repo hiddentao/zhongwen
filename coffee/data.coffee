@@ -546,3 +546,48 @@ Wei, of which school are you a student? and what about your student ID?
 I not only have respect for our school teachers, I also respect our fellow class students.
 我不但尊重我们学校的老师，我也尊重我们班的同学
 """
+
+
+exports.Greetings = """
+Hi everybody!
+大家好！
+Congratulations!
+恭喜你！
+"""
+
+exports.Directions = """
+Do you have a map?
+你有地图吗？
+How do I get there?
+怎么走
+I want to goto this place.
+我要去这儿。
+Where is it on this map?
+在地图的哪里？
+Where am I?
+这儿是什么地方？
+May I have a map?
+可以给我一张地图吗？
+Is there a library around here?
+这以带有没有图书馆？
+How do I get to Beijing?
+到北京怎么走？
+How far is it?
+有多远？
+I'd like to go to the supermarket.
+我想去超市
+Where can I have breakfast?
+早饭在哪儿吃？
+"""
+
+
+exports.Hotel = """
+This is the room (hotel)
+这是房间
+Here is the single room (hotel)
+这儿在单人房
+There is the twin room (hotel)
+那儿在双人房
+Where is my bed (hotel)?
+我的床在哪儿？
+"""

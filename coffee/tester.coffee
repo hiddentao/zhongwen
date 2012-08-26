@@ -69,7 +69,7 @@ class module.exports extends Spine.Controller
         @pollLoop = setInterval @_updateProgress, 1000
 
     input_blur: =>
-        clearInterval(pollLoop) if @pollLooppollLoop
+        clearInterval(@pollLoop) if @pollLoop
         @pollLoop = null
 
     skipBtn_click: (e) =>

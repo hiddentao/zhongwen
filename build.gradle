@@ -15,8 +15,8 @@ task test << {
 task build_assets (dependsOn: test) << {
     println "Building assets"
     project.exec{
-        executable 'weber'
-        args 'build'
+        executable 'node'
+        args('node_modules/weber/bin/weber', 'build')
     }
 }
 

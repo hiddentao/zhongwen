@@ -15,9 +15,9 @@ exports.testPinyinLookup = (test) ->
     assertArrayEqual = (e, a, m) ->
         test.strictEqual JSON.stringify(e), JSON.stringify(a)
 
-    assertArrayEqual dict.lookup("shi"), ["是","十","师","时","室"]
-    assertArrayEqual dict.lookup("Shi"), ["是","十","师","时","室"]
-    assertArrayEqual dict.lookup("SHI"), ["是","十","师","时","室"]
+    assertArrayEqual dict.lookup("shi"), ["是","十","师","时","室","市"]
+    assertArrayEqual dict.lookup("Shi"), ["是","十","师","时","室","市"]
+    assertArrayEqual dict.lookup("SHI"), ["是","十","师","时","室","市"]
     assertArrayEqual dict.lookup("?"), ["？"]
     assertArrayEqual dict.lookup("nei"), ["哪", "那"]
     assertArrayEqual dict.lookup("na"), ["哪", "那"]
